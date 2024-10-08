@@ -7,6 +7,7 @@ import CustomerProtection from './components/CustomerProtection.js'
 import RestaurentStory from './components/RestaurentStory.js';
 import IngredientsSection from './components/Ingredients.js';
 import WordsFromChef from './components/Chef.js';
+import CustomerReview from './components/CustomerReview.js';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <RestaurentStory />
       <IngredientsSection />
       <WordsFromChef />
+      <CustomerReview />
     </div>
     </>
   );
