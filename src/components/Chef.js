@@ -20,7 +20,7 @@ function WordsFromChef() {
 
                 <div className={styles.images}>
                     <img className={styles.chef} src={chef} alt='chef'></img>
-                    <img src={chef_accessories} alt='chef_accessories'></img>
+                    <img className={styles.utensils} src={chef_accessories} alt='chef_accessories'></img>
                 </div>
             </div>
         </div>
