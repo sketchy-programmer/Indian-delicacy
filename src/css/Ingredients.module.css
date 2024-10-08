@@ -1,0 +1,50 @@
+.txt{
+    width: 32rem;
+    position: relative;
+    top: -35rem;
+    left: 59rem;
+}
+
+.txt h3{
+    font-size: 2rem;
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: 800;
+    color: #ffa92c;
+}
+
+.txt h1{
+    font-family: serif;
+    color: #001a2c;
+    font-size: 4rem;
+    margin-bottom: -1rem;
+    margin-top: -1rem;
+}
+
+.txt p{
+    font-size: 25px;
+    font-family: sans-serif;
+    color: #001a2c;
+}
+
+.readmorebt{
+    padding: 15px;
+    position: relative;
+    top: -35rem;
+    left: 70rem;
+    border-radius: 30px;
+    font-family: sans-serif;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: large;
+    font-weight: 700;
+    color: white;
+    background-color: #ff5710;
+}
+
+.image img{
+    position: relative;
+    top: -63rem;
+    left: 3rem;
+    width: 35rem;
+}

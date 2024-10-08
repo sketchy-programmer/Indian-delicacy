@@ -1,24 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import NavigationBar from './components/navigationbar.js';
+import HomePageTheme from './components/HomePageTheme.js';
+import BookTable from './components/BookTable.js';
+import FoodCategory from './components/FoodCategory.js';
+import CustomerProtection from './components/CustomerProtection.js'
+import RestaurentStory from './components/RestaurentStory.js';
+import IngredientsSection from './components/Ingredients.js';
+import WordsFromChef from './components/Chef.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div>
+      <NavigationBar />
+      <HomePageTheme />
+      <BookTable /> 
+      <FoodCategory />
+      <CustomerProtection />
+      <RestaurentStory />
+      <IngredientsSection />
+      <WordsFromChef />
     </div>
+    </>
   );
 }
 

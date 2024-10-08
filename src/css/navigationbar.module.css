@@ -1,0 +1,89 @@
+.container{
+    position: relative;
+    top: -100px;
+}
+
+.navigationbackground{
+    background-color: #001a2c;
+    height: 50px;
+    border-radius: 25px;
+    margin-left: 150px;
+}
+
+.logo{
+    width: 171px;
+    position: relative;
+    top: 95px;
+    left: -15px;
+}
+
+.menubar{
+    list-style-type: none; 
+    display: flex;
+    color: whitesmoke;
+    font-family: sans-serif;
+    font-size: large;
+    position: relative;
+    top: -42px;
+    
+}
+
+.menubar li{
+    margin-left: 190px;
+    position: relative;
+    top: 15px;
+}
+
+.menubar li:hover {
+    color: #efe4cd;
+    cursor: pointer;
+}
+
+.menubar li::before {
+    content: ''; 
+    position: absolute;
+    bottom: 0;
+    left: 0; 
+    width: 0%;
+    height: 2px;
+    background-color: #efe4cd;
+    transition: width 0.3s ease-in-out;
+}
+
+.menubar li:hover::before {
+    width: 100%; 
+}
+
+.cart{
+    color: whitesmoke;
+    position: relative;
+    top: 10px;
+    left: 85px;
+    font-size: 25px;
+}
+
+.cart:hover{
+    color:#efe4cd;
+    cursor:pointer;
+}
+
+.signup{
+    position: relative;
+    top: -204px;
+    margin-left: 89%;
+    font-size: large;
+    text-decoration: none;
+    font-family: sans-serif;
+    color: #1aba9c;
+}
+
+.signup:hover{
+    color: #efe4cd;
+}
+
+.lamp{
+    width: 50px;
+    position: relative;
+    top: -33px;
+    left: -230px;
+}

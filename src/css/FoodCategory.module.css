@@ -1,0 +1,94 @@
+body{
+    overflow-x: hidden;
+}
+
+.txt{
+    font-family: sans-serif;
+    position: relative;
+    top: 190px;
+    text-align: center;
+    color: #ffa92c;
+    font-size: 25px;
+}
+
+.cards{
+    display: flex;
+    column-gap: 8rem;
+}
+
+.category{
+    text-align: center;
+    position: relative;
+    top: 10rem;
+    font-size: 2rem;
+    color: #001a2c;
+}
+
+.meatcard{
+    background-color: #fbf8ef;
+    width: 23rem;
+    height: 32rem;
+    border-radius: 2.5rem;
+    position: relative;
+    top: 10rem;
+    left: 5rem;
+}
+
+.fishcard{
+    background-color: #fbf8ef;
+    width: 23rem;
+    height: 32rem;
+    border-radius: 2.5rem;
+    position: relative;
+    top: 10rem;
+    left: 5rem;
+}
+
+.drinkscard{
+    background-color: #fbf8ef;
+    width: 23rem;
+    height: 32rem;
+    border-radius: 2.5rem;
+    position: relative;
+    top: 10rem;
+    left: 5rem;
+}
+
+.cardimg{
+    margin: 5.5rem;
+    margin-top: 2rem;
+}
+
+.cardtitle{
+    font-family: serif;
+    font-weight: 600;
+    font-size: large;
+    text-align: center;
+    position: relative;
+    top: -4rem;
+}
+
+.discription{
+    margin: 5px;
+    font-family: serif;
+    font-size: large;
+    text-align: center;
+    position: relative;
+    top: -60px;
+    font-weight: 700;
+}
+
+.readmorebt{
+    padding: 15px;
+    position: relative;
+    top: -4rem;
+    left: 6rem;
+    border-radius: 30px;
+    font-family: sans-serif;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: large;
+    font-weight: 700;
+    color: white;
+    background-color: #ff5710;
+}

@@ -1,0 +1,105 @@
+/* .images{
+    display: inline;
+} */
+
+.customertableimg{
+    position: relative;
+    left: 33%;
+    top: -689px;
+}
+
+.text{
+    position: static;
+    margin-top: -1550px;
+    margin-left: 2%;
+}
+
+.homepagetag{
+    font-size: 80px;
+    font-family: serif;
+    color: #001a2c;
+}
+
+.homepagetagh3{
+    font-size: 26px;
+    font-family: sans-serif;
+    position: relative;
+    top: -40px;
+    color: #001a2c;
+}
+
+.homepageparagraph{
+    position: relative;
+    top: -35px;
+    font-weight: 700;
+    font-family: sans-serif;
+    color: #001a2c;
+}
+
+.explorebt{
+    position: relative;
+    top: 550px;
+    left: 5%;
+}
+.explorebutton{
+    position: relative;
+    top: -545px;
+    left: 20px;
+    background-color: #ff5710;
+    padding: 15px;
+    border-radius: 25px;
+    padding-left: 40px;
+    padding-right: 40px;
+    color: white;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: large;
+}
+
+.explorebutton:hover{
+    color: #efe4cd;
+}
+
+.menubt{
+    position: relative;
+    top: -545px;
+    left: 60px;
+    font-size: large;
+    font-family: sans-serif;
+    font-weight: 700;
+    color: #001a2c;
+}
+
+.plantwase{
+    position: relative;
+    top: -999px;
+    left: 33%;
+}
+.windowimg{
+    position: relative;
+    left: 53%;
+    top: -90px;
+}
+.windowimg2{
+    position: relative;
+    left: 87%;
+    top: -430px;
+}
+
+.bookatabletxt{
+    display: flex;
+    color: #001a2c;
+    position: relative;
+    top: 150px;
+    left: 7%;
+    font-family: sans-serif;
+    font-size: large;
+}
+
+.arrowright{
+    position: relative;
+    top: 18px;
+    left: 1%;
+    font-size: 20px;
+}

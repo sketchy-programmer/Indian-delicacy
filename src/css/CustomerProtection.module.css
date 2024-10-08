@@ -1,0 +1,50 @@
+.lefttable{
+    position: relative;
+    top: 20rem;
+    left: 80rem;
+}
+
+.righttable{
+    position: relative;
+    top: 20rem;
+    left: -15rem;
+}
+
+.txt{
+    color: #001a2c;
+    text-align: center;
+    font-size: 2rem;
+    font-family: serif;
+    position: relative;
+    top: 8rem;
+}
+
+.readmore button{
+    padding: 15px;
+    position: relative;
+    top: 7rem;
+    left: 42rem;
+    border-radius: 30px;
+    font-family: sans-serif;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: large;
+    font-weight: 700;
+    color: #efe4cd;
+    background-color: #1aba9c;
+    border-style: none;
+}
+
+.twotables{
+    display: flex;
+    column-gap: 39rem;
+    position: relative;
+    left: 3rem;
+    top: 14rem;
+}
+
+.employeesafety{
+    position: relative;
+    top: -10rem;
+    left: 29rem;
+}
