@@ -1,4 +1,4 @@
-import styles from '../css/RestaurentStory.module.css'
+import styles from '../HomePageCSS/RestaurentStory.module.css'
 import Bartender from '../assets/HomePageThemeAssetes/bartender.png'
 import wall_plant from '../assets/HomePageThemeAssetes/wall_plant.png'
 import wall_accessories from '../assets/HomePageThemeAssetes/wall_accessories.png'

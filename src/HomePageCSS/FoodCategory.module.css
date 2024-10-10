@@ -91,4 +91,10 @@ body{
     font-weight: 700;
     color: white;
     background-color: #ff5710;
+    cursor: pointer;
+}
+
+.readmorebt:hover{
+    color: #d1c7b3;
+    background-color: #001a2c;
 }

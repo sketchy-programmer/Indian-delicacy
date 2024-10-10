@@ -1,5 +1,5 @@
 import CustomerTable from '../assets/HomePageThemeAssetes/eatingTable.png'
-import styles from '../css/HomePageTheme.module.css'
+import styles from '../HomePageCSS/HomePageTheme.module.css'
 import plantWase from '../assets/HomePageThemeAssetes/plant_2.png'
 import window from '../assets/HomePageThemeAssetes/window_2.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

@@ -1,4 +1,4 @@
-import styles from '../css/Ingredients.module.css'
+import styles from '../HomePageCSS/Ingredients.module.css'
 import Ingredients from '../assets/HomePageThemeAssetes/Ingredients.png'
 
 function IngredientsSection() {

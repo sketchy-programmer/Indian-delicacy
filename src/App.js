@@ -1,14 +1,14 @@
 import './App.css';
-import NavigationBar from './components/navigationbar.js';
-import HomePageTheme from './components/HomePageTheme.js';
-import BookTable from './components/BookTable.js';
-import FoodCategory from './components/FoodCategory.js';
-import CustomerProtection from './components/CustomerProtection.js'
-import RestaurentStory from './components/RestaurentStory.js';
-import IngredientsSection from './components/Ingredients.js';
-import WordsFromChef from './components/Chef.js';
-import CustomerReview from './components/CustomerReview.js';
-import Footer from './components/Footer.js';
+import NavigationBar from './HomePageComponents/navigationbar.js';
+import HomePageTheme from './HomePageComponents/HomePageTheme.js';
+import BookTable from './HomePageComponents/BookTable.js';
+import FoodCategory from './HomePageComponents/FoodCategory.js';
+import CustomerProtection from './HomePageComponents/CustomerProtection.js'
+import RestaurentStory from './HomePageComponents/RestaurentStory.js';
+import IngredientsSection from './HomePageComponents/Ingredients.js';
+import WordsFromChef from './HomePageComponents/Chef.js';
+import CustomerReview from './HomePageComponents/CustomerReview.js';
+import Footer from './HomePageComponents/Footer.js';
 
 function App() {
   return (

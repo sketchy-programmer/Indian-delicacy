@@ -1,4 +1,4 @@
-import styles from '../css/BookTable.module.css'
+import styles from '../HomePageCSS/BookTable.module.css'
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';

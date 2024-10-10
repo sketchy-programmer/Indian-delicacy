@@ -33,6 +33,12 @@
     color: #efe4cd;
     background-color: #1aba9c;
     border-style: none;
+    cursor: pointer;
+}
+
+.readmore button:hover{
+    color: #1aba9c;
+    background-color: #001a2c;
 }
 
 .twotables{

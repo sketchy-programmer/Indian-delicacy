@@ -1,4 +1,4 @@
-import styles from '../css/chef.module.css'
+import styles from '../HomePageCSS/chef.module.css'
 import chef from '../assets/HomePageThemeAssetes/chef.png'
 import chef_accessories from '../assets/HomePageThemeAssetes/chef_accessories.png'
 

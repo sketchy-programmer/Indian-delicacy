@@ -2,7 +2,7 @@ import leftTable from '../assets/HomePageThemeAssetes/leftTable.png'
 import rightTable from '../assets/HomePageThemeAssetes/rightTable.png'
 import fullTable from '../assets/HomePageThemeAssetes/fullTable.png'
 import employeeSafety from '../assets/HomePageThemeAssetes/employeesSafety.png'
-import styles from '../css/CustomerProtection.module.css'
+import styles from '../HomePageCSS/CustomerProtection.module.css'
 
 function CustomerProtection() {
     return(

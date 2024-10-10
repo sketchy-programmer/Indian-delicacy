@@ -1,4 +1,4 @@
-import styles from '../css/navigationbar.module.css'
+import styles from '../HomePageCSS/navigationbar.module.css'
 import logo from '../assets/navigationbarAssetes/logo.png'
 import lamp from '../assets/navigationbarAssetes/lamp.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

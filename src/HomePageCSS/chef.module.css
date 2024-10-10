@@ -1,35 +1,26 @@
-.bartender{
+.background {
     position: relative;
-    left: 53rem;
-    top: 8rem;
-}
-
-.wall_plant{
-    position: relative;
-    top: -45rem;
-    left: 85rem;
-}
-
-.wall_accessories img{
-    width: 12rem;
-    position: relative;
-    top: -50rem;
-    left: 55rem;
+    top: -60rem;
+    left: 2rem;
+    width: 90rem;
+    height: 35rem;
+    border-radius: 3rem;
+    background-color: whitesmoke;
 }
 
 .txt{
-    width: 30rem;
+    width: 25rem;
     position: relative;
-    top: -52rem;
+    top: 2rem;
     left: 5rem;
 }
 
 .txt h3{
     font-size: 2rem;
     font-family: sans-serif;
-    text-align: center;
-    font-weight: 800;
-    color: #ffa92c;
+    text-align: left;
+    font-weight: 600;
+    color: #1aba9c;
 }
 
 .txt h1{
@@ -49,7 +40,7 @@
 .readmorebt{
     padding: 15px;
     position: relative;
-    top: -51rem;
+    top: 4rem;
     left: 14rem;
     border-radius: 30px;
     font-family: sans-serif;
@@ -59,4 +50,21 @@
     font-weight: 700;
     color: white;
     background-color: #ff5710;
+    cursor: pointer;
+}
+
+.readmorebt:hover{
+    background-color: #001a2c;
+}
+
+.chef{
+    position: relative;
+    top: -30rem;
+    left: 45rem;
+}
+
+.utensils{
+    position: relative;
+    top: -49rem;
+    width: 12rem;
 }

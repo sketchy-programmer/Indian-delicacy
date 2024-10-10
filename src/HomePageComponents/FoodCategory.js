@@ -1,4 +1,4 @@
-import styles from '../css/FoodCategory.module.css'
+import styles from '../HomePageCSS/FoodCategory.module.css'
 import meat from '../assets/HomePageThemeAssetes/meat.png'
 import fish from '../assets/HomePageThemeAssetes/fish.png'
 import drinks from '../assets/HomePageThemeAssetes/drinks.png'  

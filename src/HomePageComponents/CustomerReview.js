@@ -1,4 +1,4 @@
-import styles from '../css/CustomerReview.module.css'
+import styles from '../HomePageCSS/CustomerReview.module.css'
 import customer from '../assets/HomePageThemeAssetes/customer.png'
 import customer2 from '../assets/HomePageThemeAssetes/customer_2.png'
 import customer3 from '../assets/HomePageThemeAssetes/customer_3.png'

@@ -131,4 +131,10 @@
     background-color: #1aba9c;
     font-family: serif;
     font-weight: 700;
+    cursor: pointer;
+}
+
+.bt:hover{
+    color: #1aba9c;
+    background-color: #efe4cd;
 }

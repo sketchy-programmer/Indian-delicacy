@@ -55,10 +55,12 @@
     font-family: sans-serif;
     font-weight: 700;
     font-size: large;
+    cursor: pointer;
 }
 
 .explorebutton:hover{
     color: #efe4cd;
+    background-color: #001a2c;
 }
 
 .menubt{
@@ -69,6 +71,11 @@
     font-family: sans-serif;
     font-weight: 700;
     color: #001a2c;
+    cursor: pointer;
+}
+
+.menubt:hover{
+    color: #ff5710;
 }
 
 .plantwase{
@@ -95,6 +102,11 @@
     left: 7%;
     font-family: sans-serif;
     font-size: large;
+    cursor: pointer;
+}
+
+.bookatabletxt:hover{
+    color: #ff5710;
 }
 
 .arrowright{
