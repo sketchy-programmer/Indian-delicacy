@@ -1,3 +1,136 @@
-footer{
-    overflow-x: hidden;
+.footer{
+    width: 101%;
+    background-color: #ff9e1c;
+    padding-bottom: 15rem;
+    position: relative;
+    left: -8px;
+    top: 7px;
+    display: flex;
+}
+
+.about{
+    position: relative;
+    top: 7rem;
+    left: 7rem;
+    font-family: sans-serif;
+}
+
+.about h1{
+    color: #efe4cd;
+    font-size: 3rem;
+    margin-bottom: -9px;
+}
+
+.about h3{
+    color: #3e3e3e;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.about h3:hover{
+    color: #efe4cd;
+}
+
+.what_we_do{
+    width: 17rem;
+    position: relative;
+    top: 7rem;
+    left: 23rem;
+    font-family: sans-serif;
+}
+
+.what_we_do h1{
+    font-size: 3rem;
+    color: #efe4cd;
+    margin-bottom: -9px;
+}
+
+.what_we_do h3{
+    color: #3e3e3e;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.what_we_do h3:hover {
+    color:#efe4cd;
+}
+
+.social_media_handles{
+    width: 28rem;
+    position: relative;
+    top: 7rem;
+    left: 36rem;
+    font-family: sans-serif;
+}
+
+.social_media_handles h1{
+    font-size: 3rem;
+    color: #efe4cd;
+    margin-bottom: -9px;
+    text-align: right;
+}
+
+.social_media_handles input{
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 2rem;
+    position: relative;
+    top: 3rem;
+    left: -1rem;
+    border: solid #3e3e3e;
+    background-color: #ff9e1c;
+    font-family: sans-serif;
+    font-size: 20px;
+    text-align: center;
+    color: #efe4cd;
+}
+
+.social_media_handles button{
+    color: #3e3e3e;
+    position: relative;
+    top: 75px;
+    font-size: 20px;
+    background-color: #ff9e1c;
+    border: none;
+    font-family: sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.social_media_handles button:hover{
+    color: #efe4cd;
+}
+
+.social_media_buttons{
+    display: flex;
+    position: relative;
+    top: 42px;
+    left: 11rem;
+    column-gap: 2rem;
+    font-size: 20px;
+}
+
+.social_media_buttons .facebook,.twitter,.instagram{
+    background-color: #efe4cd;
+    padding: 9px;
+    border-radius: 108px;
+    width: 20px;
+    cursor: pointer;
+    color: #3e3e3e;
+}
+
+.social_media_buttons .instagram:hover{
+    background-color: #3e3e3e;
+    color: #efe4cd;
+}
+
+.social_media_buttons .twitter:hover{
+    background-color: #3e3e3e;
+    color: #efe4cd;
+}
+
+.social_media_buttons .facebook:hover{
+    background-color: #3e3e3e;
+    color: #efe4cd;
 }
