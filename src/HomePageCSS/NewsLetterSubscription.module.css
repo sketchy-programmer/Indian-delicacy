@@ -1,0 +1,37 @@
+.subscription{
+    margin-top: -62rem;
+    text-align: center;
+}
+
+.subscription h3{
+    font-family: sans-serif;
+    font-weight: 700;
+    color: #ff5710;
+    font-size: 2rem;
+}
+
+.subscription h1{
+    font-family: serif;
+    font-weight: 700;
+    color: #001a2c;
+    font-size: 4rem;
+}
+
+.subscription input, textarea{
+    padding: 2rem;
+    padding-left: 25rem;
+    padding-right: 25rem;
+    border-radius: 50px;
+    border: solid white;
+    background-color: #d1c2a3;
+    font-size: large;
+    text-align: center;
+    font-family: sans-serif;
+    margin-bottom: 2rem;
+}
+
+.subscription textarea{
+    border-radius: 25rem;
+    padding-left: 17rem;
+    padding-right: 17rem;
+}

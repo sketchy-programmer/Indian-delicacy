@@ -8,6 +8,7 @@ import RestaurentStory from './HomePageComponents/RestaurentStory.js';
 import IngredientsSection from './HomePageComponents/Ingredients.js';
 import WordsFromChef from './HomePageComponents/Chef.js';
 import CustomerReview from './HomePageComponents/CustomerReview.js';
+import NewsLetterSubscription from './HomePageComponents/NewsLetterSubscription.js';
 import Footer from './HomePageComponents/Footer.js';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <IngredientsSection />
       <WordsFromChef />
       <CustomerReview />
+      <NewsLetterSubscription />
       <Footer />
     </div>
     </>
