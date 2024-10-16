@@ -28,10 +28,20 @@
     
 }
 
+.link{
+    color: whitesmoke;
+    text-decoration: none;
+}
+
 .menubar li{
     margin-left: 190px;
     position: relative;
     top: 15px;
+}
+
+.menubar .link:hover {
+    color: #efe4cd;
+    cursor: pointer;
 }
 
 .menubar li:hover {
@@ -69,7 +79,7 @@
 
 .signup{
     position: relative;
-    top: -204px;
+    top: -68px;
     margin-left: 89%;
     font-size: large;
     text-decoration: none;

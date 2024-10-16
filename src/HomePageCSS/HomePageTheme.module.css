@@ -2,6 +2,18 @@
     display: inline;
 } */
 
+.container{
+    position: relative;
+    top: -67px;
+}
+
+.lamp{
+    width: 50px;
+    position: relative;
+    top: -33px;
+    left: 74rem;
+}
+
 .customertableimg{
     position: relative;
     left: 33%;

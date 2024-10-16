@@ -10,22 +10,29 @@ import WordsFromChef from './HomePageComponents/Chef.js';
 import CustomerReview from './HomePageComponents/CustomerReview.js';
 import NewsLetterSubscription from './HomePageComponents/NewsLetterSubscription.js';
 import Footer from './HomePageComponents/Footer.js';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <>
     <div>
       <NavigationBar />
-      <HomePageTheme />
-      <BookTable /> 
-      <FoodCategory />
-      <CustomerProtection />
-      <RestaurentStory />
-      <IngredientsSection />
-      <WordsFromChef />
-      <CustomerReview />
-      <NewsLetterSubscription />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<>
+            <HomePageTheme />
+            <BookTable />
+            <FoodCategory />
+            <CustomerProtection />
+            <RestaurentStory />
+            <IngredientsSection />
+            <WordsFromChef />
+            <CustomerReview />
+            <NewsLetterSubscription />
+            <Footer />
+          </>} />
+          <Route path="/menu" element={<Footer />} />
+      </Routes>
+      
     </div>
     </>
   );

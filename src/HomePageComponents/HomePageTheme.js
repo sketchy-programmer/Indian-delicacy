@@ -1,3 +1,4 @@
+import lamp from '../assets/navigationbarAssetes/lamp.png'
 import CustomerTable from '../assets/HomePageThemeAssetes/eatingTable.png'
 import styles from '../HomePageCSS/HomePageTheme.module.css'
 import plantWase from '../assets/HomePageThemeAssetes/plant_2.png'
@@ -8,8 +9,11 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 function HomePageTheme() {
     return(
         <>
-            <div className={styles.headercontainer}>
+            <div className={styles.container}>
                 <div className={styles.images}>
+                    <div>
+                    <img className={styles.lamp} src={lamp} alt='lamp'></img>
+                    </div>
                     <div className={styles.windowimg}>
                         <img src={window} alt='window'></img>
                     </div>
