@@ -1,0 +1,14 @@
+.menutxt h1{
+    text-align: center;
+    font-size: 5rem;
+    font-family: ui-sans-serif;
+    color: #001a2c;
+}
+
+.menutxt h3{
+    color: #ffa92c;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: -55px;
+}
+

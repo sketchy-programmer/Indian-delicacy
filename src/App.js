@@ -10,6 +10,7 @@ import WordsFromChef from './HomePageComponents/Chef.js';
 import CustomerReview from './HomePageComponents/CustomerReview.js';
 import NewsLetterSubscription from './HomePageComponents/NewsLetterSubscription.js';
 import Footer from './HomePageComponents/Footer.js';
+import MenuPageTheme from './MenuPageComponents/MenuPageTheme.js';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -30,7 +31,10 @@ function App() {
             <NewsLetterSubscription />
             <Footer />
           </>} />
-          <Route path="/menu" element={<Footer />} />
+          <Route path="/menu" element={<>
+            <MenuPageTheme />
+            <Footer />
+           </> } />
       </Routes>
       
     </div>
