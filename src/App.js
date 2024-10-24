@@ -11,33 +11,29 @@ import CustomerReview from './HomePageComponents/CustomerReview.js';
 import NewsLetterSubscription from './HomePageComponents/NewsLetterSubscription.js';
 import Footer from './HomePageComponents/Footer.js';
 import MenuPageTheme from './MenuPageComponents/MenuPageTheme.js';
+import Categories from './MenuPageComponents/MenuPageCategories.js';
+import MeatDishes from './MenuPageComponents/MeatItems.js'; // Updated import
+import AddItem from './AddItem/AddItem.js';
+import Cart from './Cart/Cart.js';
 import { Routes, Route } from 'react-router-dom';
+import { CartProvider } from './Cart/CartContext.js'; // Import the CartProvider
 
 function App() {
   return (
     <>
-    <div>
-      <NavigationBar />
-      <Routes>
-        <Route path="/" element={<>
-            <HomePageTheme />
-            <BookTable />
-            <FoodCategory />
-            <CustomerProtection />
-            <RestaurentStory />
-            <IngredientsSection />
-            <WordsFromChef />
-            <CustomerReview />
-            <NewsLetterSubscription />
-            <Footer />
-          </>} />
-          <Route path="/menu" element={<>
-            <MenuPageTheme />
-            <Footer />
-           </> } />
-      </Routes>
-      
-    </div>
+      <CartProvider> {/* Wrap everything with CartProvider */}
+        <div>
+          <NavigationBar />
+          <Routes>
+            <Route path='/cart' element={<><Cart /><Footer /></>} />
+            <Route path="/" element={<><HomePageTheme /><BookTable /><FoodCategory /><CustomerProtection />
+              <RestaurentStory /><IngredientsSection /><WordsFromChef /><CustomerReview /><NewsLetterSubscription /><Footer /></>} />
+            <Route path="/menu" element={<><MenuPageTheme /><Categories /><Footer /></>} />
+            <Route path="/cuisins" element={<><Categories /><MeatDishes /><Footer /></>} />
+            <Route path="/Add_item" element={<><AddItem /><Footer /></>} />
+          </Routes>
+        </div>
+      </CartProvider>
     </>
   );
 }

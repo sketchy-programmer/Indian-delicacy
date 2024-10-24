@@ -8,12 +8,13 @@ function NavigationBar() {
         <div className={styles.container}>
             <img className={styles.logo} src={logo} alt='logo'></img>
             <div className={styles.navigationbackground}>
-                <FontAwesomeIcon className={styles.cart} icon={faCartShopping} />
+                <Link className={styles.link} to="/cart"><FontAwesomeIcon className={styles.cart} icon={faCartShopping} /></Link>
                 <ul className={styles.menubar}>
                     <li ><Link className={styles.link} to="/">HOME</Link></li>
                     <li><Link className={styles.link} to="/menu">MENU</Link></li> 
                     <li>ABOUT US</li>
                     <li>CONTACT</li>
+                    <li><Link className={styles.link} to="/Add_item">Add Item</Link></li>
                 </ul>
                 <label><a href='../components/navigationbar.js' className={styles.signup}>Sign up</a></label>
             </div>

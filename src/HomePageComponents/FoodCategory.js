@@ -7,7 +7,7 @@ function FoodCategory() {
     return(
         <>
             <div>
-                <div className=''>
+                <div className={styles.outer_line}>
                     <div className={styles.txt}>
                         <h4>Delicious</h4>
                     </div>
@@ -29,7 +29,7 @@ function FoodCategory() {
                                 </p>
                             </div>
                             <button className={styles.readmorebt}>
-                                Read More
+                                See Items
                             </button>
                         </div>
                         <div className={styles.fishcard}>
@@ -46,7 +46,7 @@ function FoodCategory() {
                                 </p>
                             </div>
                             <button className={styles.readmorebt}>
-                                Read More
+                                See Items
                             </button>
                         </div>
                         <div className={styles.drinkscard}>
@@ -63,7 +63,7 @@ function FoodCategory() {
                                 </p>
                             </div>
                             <button className={styles.readmorebt}>
-                                Read More
+                                See Items
                             </button>
                         </div>
                     </div>
