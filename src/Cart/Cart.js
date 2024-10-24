@@ -3,10 +3,10 @@ import { CartContext } from '../Cart/CartContext'; // Import the CartContext
 import styles from '../CartCss/Cart.module.css';
 
 const Cart = () => {
-    const { cartItems } = useContext(CartContext); // Get cartItems from the context
+    const { cartItems, incrementItem, decrementItem } = useContext(CartContext); // Get cartItems and functions from the context
 
     // Calculate the total price before tax
-    const totalBeforeTax = cartItems.reduce((total, item) => total + parseFloat(item.price || 0), 0);
+    const totalBeforeTax = cartItems.reduce((total, item) => total + parseFloat(item.price || 0) * item.quantity, 0);
 
     // Tax rate (13%)
     const taxRate = 0.13;
@@ -37,14 +37,19 @@ const Cart = () => {
                                     <p>No image available</p>
                                 )}
                                 <h2>{item.name}</h2>
-                                <h3>Price: ${parseFloat(item.price).toFixed(2)}</h3> {/* Ensure price is a number */}
+                                <h3>Price: ${parseFloat(item.price).toFixed(2)}</h3>
+                                <div className={styles.quantityControl}>
+                                    <button className={styles.increment} onClick={() => incrementItem(item)}>+</button>
+                                    <p className={styles.itemAmount}>{item.quantity}</p> {/* Display the quantity */}
+                                    <button className={styles.decrement} onClick={() => decrementItem(item)}>-</button>
+                                </div>
                             </div>
                         ))}
                     </div>
                 )}
                 {/* Total Calculation */}
                 {cartItems.length > 0 && (
-                    <div>
+                    <div className={styles.bill}>
                         <h1>Bill</h1>
                         <div className={styles.total}>
                             <p>Total Before Tax: ${totalBeforeTax.toFixed(2)}</p>

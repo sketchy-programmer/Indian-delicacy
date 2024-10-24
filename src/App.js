@@ -16,6 +16,7 @@ import MeatDishes from './MenuPageComponents/MeatItems.js'; // Updated import
 import AddItem from './AddItem/AddItem.js';
 import Cart from './Cart/Cart.js';
 import { Routes, Route } from 'react-router-dom';
+import { SignUp } from './SignIn/SignUp.js';
 import { CartProvider } from './Cart/CartContext.js'; // Import the CartProvider
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
               <RestaurentStory /><IngredientsSection /><WordsFromChef /><CustomerReview /><NewsLetterSubscription /><Footer /></>} />
             <Route path="/menu" element={<><MenuPageTheme /><Categories /><Footer /></>} />
             <Route path="/cuisins" element={<><Categories /><MeatDishes /><Footer /></>} />
+            <Route path="/SignUp" element={<SignUp />} />
             <Route path="/Add_item" element={<><AddItem /><Footer /></>} />
           </Routes>
         </div>

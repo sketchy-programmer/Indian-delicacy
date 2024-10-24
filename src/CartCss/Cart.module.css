@@ -1,6 +1,8 @@
 .cardOuter{
     display:grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto;
+    position:relative;
+    left: 2rem;
 }
 
 .card{
@@ -22,16 +24,116 @@
 }
 
 .total{
-    width: 15rem;
+    width: 25rem;
     background-color: whitesmoke;
     border-radius: 1rem;
     text-align: center;
     position: relative;
+    left: -5rem;
 }
 
 .total p{
-    font-family: serif;
+    font-family: cursive;
     font-size: x-large;
-    color: #ff5710;
-    font-weight: 600;
+    color: #001a2c;
+}
+
+.bill{
+    width: 15rem;
+    position: fixed;
+    top: 10rem;
+    left: 74rem;
+    text-align: center;
+}
+
+.container{
+    text-align: center;
+    position: relative;
+    top: -2rem;
+    width: 65rem;
+}
+
+.checkoutButton{
+    padding: 15px;
+    position: relative;
+    left: 1rem;
+    border-radius: 30px;
+    font-family: sans-serif;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: large;
+    font-weight: 700;
+    color: white;
+    background-color: #ff5710;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.checkoutButton:hover{
+    background-color:#001a2c;
+    color:#ff5710
+}
+
+.bill h1{
+    font-family: cursive;
+    font-size: xxx-large;
+    color: #ff9e1c;
+    font-style: italic;
+}
+
+.container h1{
+    font-family: cursive;
+    font-size: xxx-large;
+    color: #ff9e1c;
+    font-style: italic;
+}
+
+.itemAmount{
+    position: relative;
+    top: -5.5rem;
+    font-family: cursive;
+    font-size: x-large;
+    color: #001a2c;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.increment{
+    padding: 15px;
+    position: relative;
+    left: -5rem;
+    border-radius: 30px;
+    font-family: sans-serif;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: large;
+    font-weight: 700;
+    color: white;
+    background-color: #ff5710;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.decrement{
+    padding: 15px;
+    position: relative;
+    top: -10.5rem;
+    left: 5rem;
+    border-radius: 30px;
+    font-family: sans-serif;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: large;
+    font-weight: 700;
+    color: white;
+    background-color: #ff5710;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.quantityControl{
+    margin-bottom: -12rem;
 }

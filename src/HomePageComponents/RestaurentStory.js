@@ -7,7 +7,7 @@ function RestaurentStory() {
     return(
         <>
             <div>
-                <div className={styles.images}>
+                <div id='OurStory' className={styles.images}>
                     <div className={styles.bartender}>
                         <img className={styles.bar_tneder_img} src={Bartender} alt='bartenderimage'></img>
                     </div>
