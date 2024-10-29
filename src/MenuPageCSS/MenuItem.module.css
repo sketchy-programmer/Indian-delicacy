@@ -37,6 +37,7 @@
 
 .menuItemGrid{
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto;
     margin-bottom: 5rem;
+    row-gap: 1rem;
 }
