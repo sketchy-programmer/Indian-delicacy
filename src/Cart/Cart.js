@@ -39,9 +39,9 @@ const Cart = () => {
                                 <h2>{item.name}</h2>
                                 <h3>Price: ${parseFloat(item.price).toFixed(2)}</h3>
                                 <div className={styles.quantityControl}>
-                                    <button className={styles.increment} onClick={() => incrementItem(item)}>+</button>
+                                    <div className={styles.incrementbt}><button className={styles.increment} onClick={() => incrementItem(item)}>+</button></div>
                                     <p className={styles.itemAmount}>{item.quantity}</p> {/* Display the quantity */}
-                                    <button className={styles.decrement} onClick={() => decrementItem(item)}>-</button>
+                                    <div className={styles.decrementbt}><button className={styles.decrement} onClick={() => decrementItem(item)}>-</button></div>
                                 </div>
                             </div>
                         ))}
@@ -49,15 +49,19 @@ const Cart = () => {
                 )}
                 {/* Total Calculation */}
                 {cartItems.length > 0 && (
-                    <div className={styles.bill}>
-                        <h1>Bill</h1>
-                        <div className={styles.total}>
-                            <p>Total Before Tax: ${totalBeforeTax.toFixed(2)}</p>
-                            <p>Tax (13%): ${taxAmount.toFixed(2)}</p>
-                            <p>Total After Tax: ${totalAfterTax.toFixed(2)}</p>
-                            <button className={styles.checkoutButton}>Check Out</button>
+                    <div className={styles.content}>
+                        <div className={styles.bill}>
+                            <h1>Bill</h1>
+                            <div className={styles.total}>
+                                <p>Total Before Tax: ${totalBeforeTax.toFixed(2)}</p>
+                                <p>Tax (13%): ${taxAmount.toFixed(2)}</p>
+                                <p>Total After Tax: ${totalAfterTax.toFixed(2)}</p>
+                                <button className={styles.checkoutButton}>Check Out</button>
+                            </div>
                         </div>
+
                     </div>
+                    
                 )}
             </div>
         </>

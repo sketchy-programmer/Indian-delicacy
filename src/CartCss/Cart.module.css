@@ -1,26 +1,40 @@
 .cardOuter{
-    display:grid;
+    /* display:grid; */
     grid-template-columns: auto auto auto;
     position:relative;
     left: 2rem;
 }
 
 .card{
-    width: 18rem;
+    width: 54rem;
+    height: 3rem;
     background-color: whitesmoke;
-    /* display: flex;
-    justify-content: space-around; */
     text-align: center;
-    border-radius: 3rem;
+    border-radius: 10rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
     margin-bottom: 2rem;
 }
 
 .card img{
-    width: 234px;
-    height: 200px;
-    border-radius: 25px;
+    width: 156px;
+    height: 90px;
+    border-radius: 32px;
+    position: relative;
+    left: -15rem;
+    top: -22px;
+}
+
+.card h2{
+    position: relative;
+    top: -8rem;
+    font-family: cursive;
+}
+
+.card h3{
+    position: relative;
+    top: -8rem;
+    font-family: cursive;
 }
 
 .total{
@@ -38,12 +52,20 @@
     color: #001a2c;
 }
 
+
+.content{
+    padding: 4rem 0; /* Adjust as needed to account for header and footer */
+    position: relative; /* So the sticky positioning works within this container */
+    top: -23rem
+}
 .bill{
     width: 15rem;
-    position: fixed;
-    top: 10rem;
-    left: 74rem;
+    position: sticky;
+    top: 4rem; /* Start positioning from below the header */
+    bottom: 4rem; /* Stop positioning above the footer */
     text-align: center;
+    margin-left: 74rem; /* Adjust as needed for horizontal positioning */
+    margin-bottom: -22rem; /* Optional, adjust as needed */
 }
 
 .container{
@@ -114,6 +136,7 @@
     cursor: pointer;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    z-index: 1;
 }
 
 .decrement{
@@ -132,8 +155,23 @@
     cursor: pointer;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    z-index: 1;
+}
+
+.increment::before,
+.decrement::before {
+    content: "";
+    position: absolute;
+    top: -10px; /* Extend the clickable area vertically */
+    bottom: -10px;
+    left: -10px; /* Extend the clickable area horizontally */
+    right: -10px;
+    z-index: -1; /* Keeps pseudo-element behind the button */
 }
 
 .quantityControl{
     margin-bottom: -12rem;
+    position: relative;
+    top: -233px;
+    left: 15rem;
 }
