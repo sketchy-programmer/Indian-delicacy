@@ -1,28 +1,28 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import axios from 'axios';
 import styles from "../MenuPageCSS/MenuItem.module.css";
-import { CartContext } from '../Cart/CartContext'; // Import the CartContext
+import {CartContext} from '../Cart/CartContext';
 
-const MeatDishes = () => {
-    const [menuItems, setMenuItems] = useState([]);
+export const SideDishes = () => {
+    const [sideDishes, setSideDishes] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const { addToCart } = useContext(CartContext); // Use the addToCart function from context
+    const {addToCart} = useContext(CartContext);
 
     useEffect(() => {
-        const fetchMenuItems = async () => {
+        const fetchSideDishes = async () => {
             try {
-                const response = await axios.get('http://localhost:5038/api/indian_cousins/GetCuisins');
-                setMenuItems(response.data);
+                const response = await axios.get('http://localhost:5038/api/indian_cousins/GetSideDishes');
+                setSideDishes(response.data);
                 setLoading(false);
             } catch (error) {
-                console.error("Error fetching data:", error);
+                console.error("Error fetching data: ", error);
                 setError(error);
                 setLoading(false);
             }
         };
 
-        fetchMenuItems();
+        fetchSideDishes();
     }, []);
 
     return (
@@ -31,18 +31,18 @@ const MeatDishes = () => {
                 {loading ? (
                     <p>Loading...</p>
                 ) : error ? (
-                    <p>Error fetching data: {error.message}</p>
+                    <p>Error fecting data: {error.message}</p>
                 ) : (
-                    menuItems.map((item) => (
+                    sideDishes.map((item) => (
                         <div key={item._id} className={styles.menuItem}>
                             <div>
-                                {/* Check if img_src is defined */}
+                                {/*check if img_src is defined*/}
                                 {item.img_src ? (
                                     <img 
-                                        src={require(`../assets/MenuPageAssets/cuisins/${item.img_src}`)} 
-                                        alt={item.name} 
-                                        className={styles.menuItemImage} 
-                                    />
+                                        src={require(`../assets/MenuPageAssets/SideDishes/${item.img_src}`)}
+                                        alt={item.name}
+                                        className={styles.menuItemImage}>
+                                    </img>
                                 ) : (
                                     <p>No image available</p>
                                 )}
@@ -57,10 +57,9 @@ const MeatDishes = () => {
                             </div>
                         </div>
                     ))
-                )}
+                )
+                }
             </div>
         </>
-    );
-};
-
-export default MeatDishes;
+    )
+}

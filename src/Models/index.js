@@ -33,7 +33,7 @@ app.listen(5038, () => {
 });
 
 // Fetch data from the 'cusins' collection
-app.get('/api/indian_cousins/GetNotes', async (req, res) => {
+app.get('/api/indian_cousins/GetCuisins', async (req, res) => {
     try {
         // Ensure the database connection is established
         if (!database) {
@@ -59,6 +59,39 @@ app.post('/api/indian_cousins/AddNotes', async (req, res) => {
 
         const newItem = { name, price: parseFloat(price), img_src }; // Create a new item object
         const result = await database.collection('cusins').insertOne(newItem);
+        res.status(201).send(result); // Respond with the created item
+    } catch (error) {
+        console.error("Error adding item:", error);
+        res.status(500).send("Error adding item");
+    }
+});
+
+// Fetch data from the 'SideDishes' collection
+app.get('/api/indian_cousins/GetSideDishes', async (req, res) => {
+    try {
+        if (!database) {
+            return res.status(500).send("Database connection not established");
+        }
+        
+        const result = await database.collection("SideDishes").find({}).toArray();
+        res.status(200).send(result);
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        res.status(500).send("Error fetching data");
+    }
+});
+
+// Add new item (with image source) to the 'cusins' collection
+app.post('/api/indian_cousins/AddSideDishes', async (req, res) => {
+    const { name, price, img_src } = req.body; // Get name, price, and img_src from the request body
+
+    try {
+        if (!name || !price || !img_src) {
+            return res.status(400).send("Name, price, and image source are required"); // Handle missing fields
+        }
+
+        const newItem = { name, price: parseFloat(price), img_src }; // Create a new item object
+        const result = await database.collection('SideDishes').insertOne(newItem);
         res.status(201).send(result); // Respond with the created item
     } catch (error) {
         console.error("Error adding item:", error);

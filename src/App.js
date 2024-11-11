@@ -14,6 +14,7 @@ import MenuPageTheme from './MenuPageComponents/MenuPageTheme.js';
 import Categories from './MenuPageComponents/MenuPageCategories.js';
 import MeatDishes from './MenuPageComponents/MeatItems.js'; // Updated import
 import AddItem from './AddItem/AddItem.js';
+import { SideDishes } from './MenuPageComponents/SideDIshesIndian.js';
 import Cart from './Cart/Cart.js';
 import { Routes, Route } from 'react-router-dom';
 import { SignUp } from './SignIn/SignUp.js';
@@ -26,14 +27,18 @@ function App() {
         <div>
           <NavigationBar />
           <Routes>
-            <Route path='/cart' element={<><Cart /><Footer /></>} />
+            <Route path='/cart' element={<><Cart /></>} />
             <Route path="/" element={<><HomePageTheme /><BookTable /><FoodCategory /><CustomerProtection />
-              <RestaurentStory /><IngredientsSection /><WordsFromChef /><CustomerReview /><NewsLetterSubscription /><Footer /></>} />
-            <Route path="/menu" element={<><MenuPageTheme /><Categories /><Footer /></>} />
-            <Route path="/cuisins" element={<><Categories /><MeatDishes /><Footer /></>} />
+              <RestaurentStory /><IngredientsSection /><WordsFromChef /><CustomerReview /><NewsLetterSubscription /></>} />
+            <Route path="/menu" element={<><MenuPageTheme /><Categories /></>} />
+            <Route path="/cuisins" element={<><Categories /><MeatDishes /></>} />
+            <Route path="/SideDishes" element={<><Categories /><SideDishes /></>}></Route>
+            <Route path="/Indian_FastFood" element={<></>}></Route>
+            <Route path="/Drinks" element={<></>}></Route>
             <Route path="/SignUp" element={<SignUp />} />
-            <Route path="/Add_item" element={<><AddItem /><Footer /></>} />
+            <Route path="/Add_item" element={<><AddItem /></>} />
           </Routes>
+          <Footer />
         </div>
       </CartProvider>
     </>

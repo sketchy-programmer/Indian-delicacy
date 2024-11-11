@@ -4,6 +4,10 @@
     flex-wrap: nowrap;
 }
 
+form{
+    text-align: center;
+}
+
 form label{
     font-family: sans-serif;
     font-size: xx-large;
@@ -11,7 +15,7 @@ form label{
     color: #efe4cd;
 }
 
-form input{
+form input,select{
     padding-top: 1rem;
     padding-bottom: 1rem;
     padding-left: 6rem;
@@ -28,7 +32,6 @@ form input{
 form button{
     padding: 15px;
     position: relative;
-    left: 9rem;
     border-radius: 30px;
     font-family: sans-serif;
     padding-left: 40px;
@@ -48,10 +51,10 @@ form button:hover{
 
 .background{
     background-color: #fe9d1c;
-    width: 37rem;
-    height: 26rem;
+    width: 39rem;
+    height: 30rem;
     position: relative;
-    top: -25rem;
+    top: -29rem;
     left: 27rem;
     z-index: -1;
     border-radius: 4rem;

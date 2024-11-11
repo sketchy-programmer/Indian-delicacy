@@ -29,7 +29,7 @@ const Cart = () => {
                             <div key={index} className={styles.card}>
                                 {item.img_src ? (
                                     <img 
-                                        src={require(`../assets/MenuPageAssets/${item.img_src}`)} 
+                                        src={require(`../assets/cartImages/${item.img_src}`)} 
                                         alt={item.name} 
                                         className={styles.menuItemImage} 
                                     />
