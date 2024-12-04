@@ -1,5 +1,5 @@
-import styles from '../HomePageCSS/Footer.module.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import styles from '../HomePageCSS/Footer.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF} from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -24,13 +24,15 @@ function Footer() {
                 <h3>Help</h3>
             </div>
             <div className={styles.social_media_handles}>
-                <div className={styles.subscription}>
-                    <h1>Sign Up To Receive Our Newsletter</h1>
-                </div>
-                <div>
-                    <input className={styles.email_field} type='email'></input>
-                    <button>Follow us!</button>
-                </div>
+                <form>
+                    <div className={styles.subscription}>
+                        <h1>Sign Up To Receive Our Newsletter</h1>
+                    </div>
+                    <div>
+                        <input className={styles.email_field} type='email'></input>
+                        <button>Follow us!</button>
+                    </div>
+                </form>
                 <div className={styles.social_media_buttons}>
                     <a href='https://www.facebook.com/'><FontAwesomeIcon className={styles.facebook} icon={faFacebookF}></FontAwesomeIcon></a>
                     <a href='https://x.com/?lang=en'><FontAwesomeIcon className={styles.twitter} icon={faTwitter}></FontAwesomeIcon></a>

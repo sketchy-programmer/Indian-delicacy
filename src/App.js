@@ -22,7 +22,7 @@ import Cart from './Cart/Cart.js';
 import { Routes, Route } from 'react-router-dom';
 import { SignUp } from './SignIn/SignUp.js';
 import { CartProvider } from './Cart/CartContext.js'; // Import the CartProvider
-
+import SelectTable from './HomePageComponents/SelectTable.js';
 function App() {
   return (
     <>
@@ -33,6 +33,7 @@ function App() {
             <Route path='/cart' element={<><Cart /></>} />
             <Route path="/" element={<><HomePageTheme /><BookTable /><FoodCategory /><CustomerProtection />
               <RestaurentStory /><IngredientsSection /><WordsFromChef /><CustomerReview /><NewsLetterSubscription /></>} />
+            <Route path="/select-table" element={<><SelectTable /></>} />
             <Route path="/menu" element={<><MenuPageTheme /><Categories /><AllItems/><RestaurentStory/></>} />
             <Route path="/cuisins" element={<><Categories /><MeatDishes /></>} />
             <Route path="/SideDishes" element={<><Categories /><SideDishes /></>}></Route>

@@ -187,3 +187,50 @@ app.post('/api/indian_cousins/AddDrinks', async (req, res) => {
     }
 })
 
+// select table
+app.get('/api/restaurant/getTables', async (req, res) => {
+    try {
+      const tables = await database.collection('tables').find({}).toArray();
+      res.status(200).json(tables);
+    } catch (error) {
+      console.error('Error fetching tables:', error);
+      res.status(500).send('Error fetching table data');
+    }
+});
+
+// subscribe mail 
+const nodemailer = require('nodemailer'); // Import Nodemailer
+
+// POST route to handle newsletter subscription
+app.post('/api/subscribe', async (req, res) => {
+  const { name, email, message } = req.body;
+
+  // Set up the email transporter
+  const transporter = nodemailer.createTransport({
+    service: 'gmail', // or use any other email service provider
+    auth: {
+      user: 'sparamvirsingh321@gmail.com', // Replace with your email
+      pass: 'vinf hlul cbwu xzgn'   // Replace with your email password or app-specific password
+    }
+  });
+
+  // Define email options
+  const mailOptions = {
+    from: 'sparamvirsingh321@gmail.com',
+    to: email,
+    subject: 'Subscription Confirmation - Indian Delicacy Newsletter',
+    text: `Hi ${name},\n\nThank you for subscribing to the Indian Delicacy Newsletter!\n\nYour message: ${message}\n\nStay tuned for delicious updates!\n\nBest regards,\nIndian Delicacy Team`
+  };
+
+  try {
+    // Send the email
+    await transporter.sendMail(mailOptions);
+    res.status(200).send('Subscription successful, email sent!');
+  } catch (error) {
+    console.error('Error sending email:', error);
+    res.status(500).send('Error subscribing to the newsletter');
+  }
+});
+
+  
+

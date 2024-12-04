@@ -68,6 +68,8 @@
     color: #efe4cd;
     margin-bottom: -9px;
     text-align: right;
+    position: relative;
+    left: 11rem;
 }
 
 .social_media_handles input{
@@ -133,4 +135,9 @@
 .social_media_buttons .facebook:hover{
     background-color: #3e3e3e;
     color: #efe4cd;
+}
+
+.form{
+    position: relative;
+    left: -11rem;
 }
