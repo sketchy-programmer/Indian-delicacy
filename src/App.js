@@ -14,6 +14,10 @@ import MenuPageTheme from './MenuPageComponents/MenuPageTheme.js';
 import Categories from './MenuPageComponents/MenuPageCategories.js';
 import MeatDishes from './MenuPageComponents/MeatItems.js';
 import AddItem from './AddItem/AddItem.js';
+import { SideDishes } from './MenuPageComponents/SideDIshesIndian.js';
+import AllItems from './MenuPageComponents/AllItems.js';
+import IndianFastFood from './MenuPageComponents/indian_FastFood.js';
+import Drinks from './MenuPageComponents/Drinks.js';
 import Cart from './Cart/Cart.js';
 import { Routes, Route } from 'react-router-dom';
 import SignUp from './SignIn/SignUp.js';
@@ -24,55 +28,26 @@ import React, { useState } from "react";
 
 function App() {
   return (
-    <CartProvider>
-      <div>
-        <NavigationBar />
-        <Routes>
-          {/* Home Route with all components */}
-          <Route path="/" element={
-            <>
-              <HomePageTheme />
-              <BookTable />
-              <FoodCategory />
-              <CustomerProtection />
-              <RestaurentStory />
-              <IngredientsSection />
-              <WordsFromChef />
-              <CustomerReview />
-              <NewsLetterSubscription />
-            </>
-          } />
-          
-          {/* Menu Route */}
-          <Route path="/menu" element={
-            <>
-              <MenuPageTheme />
-              <Categories />
-            </>
-          } />
-          
-          {/* Cuisine Route */}
-          <Route path="/cuisins" element={
-            <>
-              <Categories />
-              <MeatDishes />
-            </>
-          } />
-          
-          {/* Cart Route */}
-          <Route path="/cart" element={<Cart />} />
-          
-          {/* SignUp and Login Routes */}
-          <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/login" element={<LoginPage />} />
-        
-          
-          {/* Add Item Route */}
-          <Route path="/Add_item" element={<AddItem />} />
-        </Routes>
-      </div>
-      <Footer />
-    </CartProvider>
+    <>
+      <CartProvider> {/* Wrap everything with CartProvider */}
+        <div>
+          <NavigationBar />
+          <Routes>
+            <Route path='/cart' element={<><Cart /></>} />
+            <Route path="/" element={<><HomePageTheme /><BookTable /><FoodCategory /><CustomerProtection />
+              <RestaurentStory /><IngredientsSection /><WordsFromChef /><CustomerReview /><NewsLetterSubscription /></>} />
+            <Route path="/menu" element={<><MenuPageTheme /><Categories /><AllItems/><RestaurentStory/></>} />
+            <Route path="/cuisins" element={<><Categories /><MeatDishes /></>} />
+            <Route path="/SideDishes" element={<><Categories /><SideDishes /></>}></Route>
+            <Route path="/Indian_FastFood" element={<><Categories /><IndianFastFood /></>}></Route>
+            <Route path="/Drinks" element={<><Categories /><Drinks /></>}></Route>
+            <Route path="/SignUp" element={<SignUp />} />
+            <Route path="/Add_item" element={<><AddItem /></>} />
+          </Routes>
+          <Footer />
+        </div>
+      </CartProvider>
+    </>
   );
 }
 

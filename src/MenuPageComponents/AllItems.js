@@ -1,18 +1,18 @@
-import React, { useEffect, useState, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import styles from "../MenuPageCSS/MenuItem.module.css";
-import { CartContext } from '../Cart/CartContext'; // Import the CartContext
+import styles from '../MenuPageCSS/MenuItem.module.css';
+import MenuPageTheme from '../MenuPageCSS/MenuPageTheme.module.css';
+import { CartContext } from '../Cart/CartContext';
 
-const MeatDishes = () => {
+const AllItems = () => {
     const [menuItems, setMenuItems] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const { addToCart } = useContext(CartContext); // Use the addToCart function from context
-
+    const { addToCart } = useContext(CartContext);
     useEffect(() => {
         const fetchMenuItems = async () => {
             try {
-                const response = await axios.get('http://localhost:5038/api/indian_cousins/GetCuisins');
+                const response = await axios.get('http://localhost:5038/api/indian_cousins/GetAllItems');
                 setMenuItems(response.data);
                 setLoading(false);
             } catch (error) {
@@ -21,14 +21,13 @@ const MeatDishes = () => {
                 setLoading(false);
             }
         };
-
         fetchMenuItems();
     }, []);
-
     return (
         <>
-            <div className={styles.menuItemGrid}>
-                {loading ? (
+            <div className={MenuPageTheme.container}>
+                <div className={styles.menuItemGrid}>
+                    {loading ? (
                     <p>Loading...</p>
                 ) : error ? (
                     <p>Error fetching data: {error.message}</p>
@@ -39,7 +38,7 @@ const MeatDishes = () => {
                                 {/* Check if img_src is defined */}
                                 {item.img_src ? (
                                     <img 
-                                        src={require(`../assets/MenuPageAssets/cuisins/${item.img_src}`)} 
+                                        src={require(`../assets/cartImages/${item.img_src}`)} 
                                         alt={item.name} 
                                         className={styles.menuItemImage} 
                                     />
@@ -56,11 +55,12 @@ const MeatDishes = () => {
                                 </button>
                             </div>
                         </div>
-                    ))
-                )}
+                        ))
+                    )}
+                </div>
             </div>
         </>
-    );
-};
+    )
+}
 
-export default MeatDishes;
+export default AllItems;

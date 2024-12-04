@@ -1,48 +1,45 @@
-import React, { useEffect, useState, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import styles from "../MenuPageCSS/MenuItem.module.css";
-import { CartContext } from '../Cart/CartContext'; // Import the CartContext
-
-const MeatDishes = () => {
-    const [menuItems, setMenuItems] = useState([]);
+import { CartContext } from '../Cart/CartContext';
+import styles from '../MenuPageCSS/MenuItem.module.css';
+const IndianFastFood = () => {
+    const [indianFastFood, setIndianFastFood] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const { addToCart } = useContext(CartContext); // Use the addToCart function from context
+    const {addToCart} = useContext(CartContext);
 
     useEffect(() => {
-        const fetchMenuItems = async () => {
+        const fetchIndianFastFood = async () => {
             try {
-                const response = await axios.get('http://localhost:5038/api/indian_cousins/GetCuisins');
-                setMenuItems(response.data);
+                const response = await axios.get('http://localhost:5038/api/indian_cousins/GetIndianFastFood');
+                setIndianFastFood(response.data);
                 setLoading(false);
             } catch (error) {
                 console.error("Error fetching data:", error);
                 setError(error);
                 setLoading(false);
             }
-        };
-
-        fetchMenuItems();
+        }
+        fetchIndianFastFood();
     }, []);
-
     return (
         <>
             <div className={styles.menuItemGrid}>
                 {loading ? (
                     <p>Loading...</p>
                 ) : error ? (
-                    <p>Error fetching data: {error.message}</p>
+                    <p>Error fecting data: {error.message}</p>
                 ) : (
-                    menuItems.map((item) => (
+                    indianFastFood.map((item) => (
                         <div key={item._id} className={styles.menuItem}>
                             <div>
-                                {/* Check if img_src is defined */}
+                                {/*check if img_src is defined*/}
                                 {item.img_src ? (
                                     <img 
-                                        src={require(`../assets/MenuPageAssets/cuisins/${item.img_src}`)} 
-                                        alt={item.name} 
-                                        className={styles.menuItemImage} 
-                                    />
+                                        src={require(`../assets/IndianFastFoodAssets/${item.img_src}`)}
+                                        alt={item.name}
+                                        className={styles.menuItemImage}>
+                                    </img>
                                 ) : (
                                     <p>No image available</p>
                                 )}
@@ -57,10 +54,11 @@ const MeatDishes = () => {
                             </div>
                         </div>
                     ))
-                )}
+                )
+                }
             </div>
         </>
-    );
-};
+    )
+}
 
-export default MeatDishes;
+export default IndianFastFood;
