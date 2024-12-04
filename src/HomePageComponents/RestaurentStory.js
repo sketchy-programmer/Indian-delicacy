@@ -6,7 +6,7 @@ import wall_accessories from '../assets/HomePageThemeAssetes/wall_accessories.pn
 function RestaurentStory() {
     return(
         <>
-            <div>
+            <div className={styles.container}>
                 <div id='OurStory' className={styles.images}>
                     <div className={styles.bartender}>
                         <img className={styles.bar_tneder_img} src={Bartender} alt='bartenderimage'></img>

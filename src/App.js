@@ -15,6 +15,9 @@ import Categories from './MenuPageComponents/MenuPageCategories.js';
 import MeatDishes from './MenuPageComponents/MeatItems.js'; // Updated import
 import AddItem from './AddItem/AddItem.js';
 import { SideDishes } from './MenuPageComponents/SideDIshesIndian.js';
+import AllItems from './MenuPageComponents/AllItems.js';
+import IndianFastFood from './MenuPageComponents/indian_FastFood.js';
+import Drinks from './MenuPageComponents/Drinks.js';
 import Cart from './Cart/Cart.js';
 import { Routes, Route } from 'react-router-dom';
 import { SignUp } from './SignIn/SignUp.js';
@@ -30,11 +33,11 @@ function App() {
             <Route path='/cart' element={<><Cart /></>} />
             <Route path="/" element={<><HomePageTheme /><BookTable /><FoodCategory /><CustomerProtection />
               <RestaurentStory /><IngredientsSection /><WordsFromChef /><CustomerReview /><NewsLetterSubscription /></>} />
-            <Route path="/menu" element={<><MenuPageTheme /><Categories /></>} />
+            <Route path="/menu" element={<><MenuPageTheme /><Categories /><AllItems/><RestaurentStory/></>} />
             <Route path="/cuisins" element={<><Categories /><MeatDishes /></>} />
             <Route path="/SideDishes" element={<><Categories /><SideDishes /></>}></Route>
-            <Route path="/Indian_FastFood" element={<></>}></Route>
-            <Route path="/Drinks" element={<></>}></Route>
+            <Route path="/Indian_FastFood" element={<><Categories /><IndianFastFood /></>}></Route>
+            <Route path="/Drinks" element={<><Categories /><Drinks /></>}></Route>
             <Route path="/SignUp" element={<SignUp />} />
             <Route path="/Add_item" element={<><AddItem /></>} />
           </Routes>

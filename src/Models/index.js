@@ -32,6 +32,27 @@ app.listen(5038, () => {
     connectToDatabase(); // Call the function to connect to the database
 });
 
+//Fetch all items
+app.get('/api/indian_cousins/GetAllItems', async (req, res) => {
+    try {
+        // Ensure the database connection is established
+        if (!database) {
+            return res.status(500).send("Database connection not established");
+        }
+
+        const resultCusins = await database.collection("cusins").find({}).toArray();
+        const resultSideDishes = await database.collection("SideDishes").find({}).toArray();
+        const resultIndianFastFood = await database.collection("IndianFastFood").find({}).toArray();
+        const resultDrinks = await database.collection("Drinks").find({}).toArray();
+        const result = [...resultCusins, ...resultSideDishes, ...resultIndianFastFood, ...resultDrinks];
+        res.status(200).send(result);
+
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        res.status(500).send("Error fetching data"); // Handle errors
+    }
+});
+
 // Fetch data from the 'cusins' collection
 app.get('/api/indian_cousins/GetCuisins', async (req, res) => {
     try {
@@ -81,7 +102,7 @@ app.get('/api/indian_cousins/GetSideDishes', async (req, res) => {
     }
 });
 
-// Add new item (with image source) to the 'cusins' collection
+// Add new item (with image source) to the 'SideDishes' collection
 app.post('/api/indian_cousins/AddSideDishes', async (req, res) => {
     const { name, price, img_src } = req.body; // Get name, price, and img_src from the request body
 
@@ -98,3 +119,71 @@ app.post('/api/indian_cousins/AddSideDishes', async (req, res) => {
         res.status(500).send("Error adding item");
     }
 });
+
+// Fetch data from the 'IndianFastFood' collection
+app.get('/api/indian_cousins/GetIndianFastFood', async (req, res) => {
+    try {
+        if (!database) {
+            return res.status(500).send("Database connection not established");
+        }
+
+        const result = await database.collection("IndianFastFood").find({}).toArray();
+        res.status(200).send(result);
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        res.status(500).send("Error fetching data");
+    }
+})
+
+// Add new item (with image source) to the 'IndianFastFood' collection
+app.post('/api/indian_cousins/AddIndianFastFood', async (req, res) => {
+    const { name, price, img_src } = req.body;
+
+    try {
+        if (!name || !price || !img_src) {
+            return res.status(400).send("Name, price, and image source are required");  
+        }
+
+        const newItem = { name, price: parseFloat(price), img_src };
+        const result = await database.collection('IndianFastFood').insertOne(newItem);
+        res.status(201).send(result);
+    } catch (error) {
+        console.error("Error adding item:", error);
+        res.status(500).send("Error adding item");
+    }
+})
+
+
+// Fetch data from the 'Drinks' collection
+app.get('/api/indian_cousins/GetDrinks', async (req, res) => {
+    try {
+        if (!database) {
+            return res.status(500).send("Database connection not established");
+        }
+
+        const result = await database.collection("Drinks").find({}).toArray();
+        res.status(200).send(result);
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        res.status(500).send("Error fetching data");
+    }
+})
+
+// Add new item (with image source) to the 'Drinks' collection
+app.post('/api/indian_cousins/AddDrinks', async (req, res) => {
+    const { name, price, img_src } = req.body;
+
+    try {
+        if (!name || !price || !img_src) {
+            return res.status(400).send("Name, price, and image source are required");
+        }
+
+        const newItem = { name, price: parseFloat(price), img_src };
+        const result = await database.collection('Drinks').insertOne(newItem);
+        res.status(201).send(result);
+    } catch (error) {
+        console.error("Error adding item:", error);
+        res.status(500).send("Error adding item");
+    }
+})
+

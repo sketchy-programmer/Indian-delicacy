@@ -25,7 +25,7 @@
 .categories ul{
     list-style-type: none;
     display: flex;
-    column-gap: 8rem;
+    column-gap: 2rem;
     position: relative;
     left: -1rem;
 }

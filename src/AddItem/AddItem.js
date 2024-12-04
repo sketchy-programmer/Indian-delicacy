@@ -22,6 +22,10 @@ const AddItem = () => {
             ? 'http://localhost:5038/api/indian_cousins/AddNotes' 
             : foodCategory === 'Side Dishes'
             ? 'http://localhost:5038/api/indian_cousins/AddSideDishes'
+            : foodCategory === 'Indian Fast Food'
+            ? 'http://localhost:5038/api/indian_cousins/AddIndianFastFood'
+            : foodCategory === 'Drinks'
+            ? 'http://localhost:5038/api/indian_cousins/AddDrinks'
             : null;
 
         if (!endPoint) {
