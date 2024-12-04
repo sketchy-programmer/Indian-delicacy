@@ -23,7 +23,7 @@ import { Routes, Route } from 'react-router-dom';
 import SignUp from './SignIn/SignUp.js';
 import LoginPage from './SignIn/LoginPage.js';
 import { CartProvider } from './Cart/CartContext.js';
-import React, { useState } from "react";
+import React from "react";
 
 
 function App() {
@@ -42,6 +42,7 @@ function App() {
             <Route path="/Indian_FastFood" element={<><Categories /><IndianFastFood /></>}></Route>
             <Route path="/Drinks" element={<><Categories /><Drinks /></>}></Route>
             <Route path="/SignUp" element={<SignUp />} />
+            <Route path="/login" element={<LoginPage />}/>
             <Route path="/Add_item" element={<><AddItem /></>} />
           </Routes>
           <Footer />
