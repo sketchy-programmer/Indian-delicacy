@@ -3,7 +3,7 @@ import NavigationBar from './HomePageComponents/navigationbar.js';
 import HomePageTheme from './HomePageComponents/HomePageTheme.js';
 import BookTable from './HomePageComponents/BookTable.js';
 import FoodCategory from './HomePageComponents/FoodCategory.js';
-import CustomerProtection from './HomePageComponents/CustomerProtection.js'
+import CustomerProtection from './HomePageComponents/CustomerProtection.js';
 import RestaurentStory from './HomePageComponents/RestaurentStory.js';
 import IngredientsSection from './HomePageComponents/Ingredients.js';
 import WordsFromChef from './HomePageComponents/Chef.js';
@@ -12,31 +12,67 @@ import NewsLetterSubscription from './HomePageComponents/NewsLetterSubscription.
 import Footer from './HomePageComponents/Footer.js';
 import MenuPageTheme from './MenuPageComponents/MenuPageTheme.js';
 import Categories from './MenuPageComponents/MenuPageCategories.js';
-import MeatDishes from './MenuPageComponents/MeatItems.js'; // Updated import
+import MeatDishes from './MenuPageComponents/MeatItems.js';
 import AddItem from './AddItem/AddItem.js';
 import Cart from './Cart/Cart.js';
 import { Routes, Route } from 'react-router-dom';
-import { SignUp } from './SignIn/SignUp.js';
-import { CartProvider } from './Cart/CartContext.js'; // Import the CartProvider
+import SignUp from './SignIn/SignUp.js';
+import LoginPage from './SignIn/LoginPage.js';
+import { CartProvider } from './Cart/CartContext.js';
+import React, { useState } from "react";
+
 
 function App() {
   return (
-    <>
-      <CartProvider> {/* Wrap everything with CartProvider */}
-        <div>
-          <NavigationBar />
-          <Routes>
-            <Route path='/cart' element={<><Cart /><Footer /></>} />
-            <Route path="/" element={<><HomePageTheme /><BookTable /><FoodCategory /><CustomerProtection />
-              <RestaurentStory /><IngredientsSection /><WordsFromChef /><CustomerReview /><NewsLetterSubscription /><Footer /></>} />
-            <Route path="/menu" element={<><MenuPageTheme /><Categories /><Footer /></>} />
-            <Route path="/cuisins" element={<><Categories /><MeatDishes /><Footer /></>} />
-            <Route path="/SignUp" element={<SignUp />} />
-            <Route path="/Add_item" element={<><AddItem /><Footer /></>} />
-          </Routes>
-        </div>
-      </CartProvider>
-    </>
+    <CartProvider>
+      <div>
+        <NavigationBar />
+        <Routes>
+          {/* Home Route with all components */}
+          <Route path="/" element={
+            <>
+              <HomePageTheme />
+              <BookTable />
+              <FoodCategory />
+              <CustomerProtection />
+              <RestaurentStory />
+              <IngredientsSection />
+              <WordsFromChef />
+              <CustomerReview />
+              <NewsLetterSubscription />
+            </>
+          } />
+          
+          {/* Menu Route */}
+          <Route path="/menu" element={
+            <>
+              <MenuPageTheme />
+              <Categories />
+            </>
+          } />
+          
+          {/* Cuisine Route */}
+          <Route path="/cuisins" element={
+            <>
+              <Categories />
+              <MeatDishes />
+            </>
+          } />
+          
+          {/* Cart Route */}
+          <Route path="/cart" element={<Cart />} />
+          
+          {/* SignUp and Login Routes */}
+          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/login" element={<LoginPage />} />
+        
+          
+          {/* Add Item Route */}
+          <Route path="/Add_item" element={<AddItem />} />
+        </Routes>
+      </div>
+      <Footer />
+    </CartProvider>
   );
 }
 

@@ -1,0 +1,58 @@
+.form {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.buttonGroup {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        margin-right: 150px;
+        margin-left: -120px;
+}
+
+.registerButton,
+.loginButton {
+    flex: 1;
+    margin: 0 5px; /* Add space between buttons */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.registerButton {
+    background-color: #007bff;
+    color: white;
+}
+
+.registerButton:hover {
+    background-color: #0056b3;
+}
+
+.loginButton {
+    background-color: #6c757d;
+    color: white;
+}
+
+.loginButton:hover {
+    background-color: #5a6268;
+}

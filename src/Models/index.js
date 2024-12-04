@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // Add middleware to parse JSON bodies
 
-const CONNECTION_STRING = "mongodb+srv://paramvirsingh2002004:id2D5MsHGgv52WsM@indian-delicacy.rvntr.mongodb.net/?retryWrites=true&w=majority&appName=Indian-delicacy";
+const CONNECTION_STRING = "mongodb+srv://Angrej:angrej12@indian-delicacy.rvntr.mongodb.net/?retryWrites=true&w=majority&appName=Indian-delicacy";
 const DATABASE_NAME = "indian_cousins"; 
 let database;
 
@@ -63,5 +63,73 @@ app.post('/api/indian_cousins/AddNotes', async (req, res) => {
     } catch (error) {
         console.error("Error adding item:", error);
         res.status(500).send("Error adding item");
+    }
+});
+
+// Endpoint to add a new user
+app.post('/api/indian_cousins/AddUser', async (req, res) => {
+    const { userFirstName, userLastName, userEmail, userPassword, userConfirmPass } = req.body;
+
+    try {
+        if (!userFirstName || !userLastName || !userEmail || !userPassword || !userConfirmPass) {
+            return res.status(400).send("All fields are required.");
+        }
+
+        // Insert the new user data
+        const newUser = { firstName: userFirstName, lastName: userLastName, email: userEmail, password: userPassword };
+        const result = await database.collection('UserCredentials').insertOne(newUser);
+        
+        res.status(201).send({ success: true, message: "User registered successfully", result });
+    } catch (error) {
+        console.error("Error adding item:", error);
+        res.status(500).send("Error adding item");
+    }
+});
+
+
+// Endpoint to log in a user
+app.post('/api/indian_cousins/LoginUser', async (req, res) => {
+    console.log(req.body);
+    const { userEmail, userPassword } = req.body;
+
+    try {
+        if (!userEmail || !userPassword) {
+            return res.status(400).send({ message: "Email and password are required." });
+        }
+
+        // Find the user in the database
+        const user = await database.collection('UserCredentials').findOne({ email: userEmail });
+
+        if (!user) {
+            return res.status(404).send({ message: "User not found. Please register first." });
+        }
+
+        // Check if the password matches
+        if (user.password !== userPassword) {
+            return res.status(401).send({ message: "Invalid email or password." });
+        }
+
+        // Generate a token (replace with actual token generation logic if needed)
+        const token = `dummy-token-${user._id}`;
+
+        // Include a role field based on business logic (e.g., Admin or Customer)
+        const role = userEmail === "admin@example.com" ? "Admin" : "Customer";
+
+        // Respond with user details and token
+        res.status(200).send({
+            success: true,
+            message: "Login successful!",
+            role,
+            token,
+            user: {
+                id: user._id,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email,
+            },
+        });
+    } catch (error) {
+        console.error("Error during login:", error);
+        res.status(500).send({ message: "Error during login" });
     }
 });
