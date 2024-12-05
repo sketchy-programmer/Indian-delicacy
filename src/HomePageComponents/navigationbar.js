@@ -99,7 +99,7 @@ function NavigationBar() {
                     )}
                 </div>
                 <ul className={styles.menubar}>
-                    <li><Link className={styles.link} to="/">HOME</Link></li>
+                    <li><Link className={styles.link} to="/Admin">HOME</Link></li>
                     <li><Link className={styles.link} to="/menu">MENU</Link></li>
                     <li><Link className={styles.link} to="/about">ABOUT US</Link></li>
                     <li><Link className={styles.link} to="/contact">CONTACT</Link></li>

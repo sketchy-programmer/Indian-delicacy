@@ -81,7 +81,7 @@ app.get('/api/indian_cousins/GetCuisins', async (req, res) => {
 });
 
 // Add new item (with image source) to the 'cusins' collection
-app.post('/api/indian_cousins/AddNotes', isAdmin, async (req, res) => {
+app.post('/api/indian_cousins/AddNotes', async (req, res) => {
     const { name, price, img_src } = req.body; // Get name, price, and img_src from the request body
 
     try {
@@ -99,7 +99,7 @@ app.post('/api/indian_cousins/AddNotes', isAdmin, async (req, res) => {
 });
 
 // Fetch data from the 'SideDishes' collection
-app.get('/api/indian_cousins/GetSideDishes', isAdmin, async (req, res) => {
+app.get('/api/indian_cousins/GetSideDishes', async (req, res) => {
     try {
         if (!database) {
             return res.status(500).send("Database connection not established");
@@ -114,7 +114,7 @@ app.get('/api/indian_cousins/GetSideDishes', isAdmin, async (req, res) => {
 });
 
 // Add new item (with image source) to the 'SideDishes' collection
-app.post('/api/indian_cousins/AddSideDishes', isAdmin, async (req, res) => {
+app.post('/api/indian_cousins/AddSideDishes', async (req, res) => {
     const { name, price, img_src } = req.body; // Get name, price, and img_src from the request body
 
     try {
@@ -132,7 +132,7 @@ app.post('/api/indian_cousins/AddSideDishes', isAdmin, async (req, res) => {
 });
 
 // Fetch data from the 'IndianFastFood' collection
-app.get('/api/indian_cousins/GetIndianFastFood', isAdmin, async (req, res) => {
+app.get('/api/indian_cousins/GetIndianFastFood', async (req, res) => {
     try {
         if (!database) {
             return res.status(500).send("Database connection not established");
@@ -147,7 +147,7 @@ app.get('/api/indian_cousins/GetIndianFastFood', isAdmin, async (req, res) => {
 })
 
 // Add new item (with image source) to the 'IndianFastFood' collection
-app.post('/api/indian_cousins/AddIndianFastFood', isAdmin, async (req, res) => {
+app.post('/api/indian_cousins/AddIndianFastFood', async (req, res) => {
     const { name, price, img_src } = req.body;
 
     try {
@@ -166,7 +166,7 @@ app.post('/api/indian_cousins/AddIndianFastFood', isAdmin, async (req, res) => {
 
 
 // Fetch data from the 'Drinks' collection
-app.get('/api/indian_cousins/GetDrinks', isAdmin, async (req, res) => {
+app.get('/api/indian_cousins/GetDrinks', async (req, res) => {
     try {
         if (!database) {
             return res.status(500).send("Database connection not established");
@@ -181,7 +181,7 @@ app.get('/api/indian_cousins/GetDrinks', isAdmin, async (req, res) => {
 })
 
 // Add new item (with image source) to the 'Drinks' collection
-app.post('/api/indian_cousins/AddDrinks', isAdmin, async (req, res) => {
+app.post('/api/indian_cousins/AddDrinks', async (req, res) => {
     const { name, price, img_src } = req.body;
 
     try {
@@ -363,8 +363,76 @@ app.post('/api/indian_cousins/LoginUser', async (req, res) => {
         // Generate a token (replace 'secret' with a strong key)
         const token = jwt.sign({ id: user._id, role: user.role }, 'secret', { expiresIn: '1h' });
 
-        res.status(200).send({ success: true, message: "Login successful!", token, role: user.role });
+        res.status(200).send({ success: true, message: "Login successful!", token, role: user.role, firstName: user.firstName, lastName: user.lastName, email: user.email });
     } catch (error) {
         res.status(500).send({ message: "Login failed!" });
+    }
+});
+
+const { ObjectId } = require('mongodb');
+// Route to delete an item by ID
+app.delete('/api/indian_cousins/DeleteItem/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        // Ensure the database connection is established
+        if (!database) {
+            return res.status(500).send("Database connection not established");
+        }
+
+        // Attempt to delete from all collections
+        const collections = ["cusins", "SideDishes", "IndianFastFood", "Drinks"];
+        let deleted = false;
+
+        for (const collection of collections) {
+            const result = await database.collection(collection).deleteOne({ _id: new ObjectId(id) });
+            if (result.deletedCount > 0) {
+                deleted = true;
+                break;
+            }
+        }
+
+        if (deleted) {
+            res.status(200).send({ message: "Item deleted successfully" });
+        } else {
+            res.status(404).send({ message: "Item not found" });
+        }
+    } catch (error) {
+        console.error("Error deleting item:", error);
+        res.status(500).send({ message: "Failed to delete item" });
+    }
+});
+
+// Route to update an item by ID
+app.put('/api/indian_cousins/UpdateItem/:id', async (req, res) => {
+    const { id } = req.params;
+    const updatedItem = req.body;
+
+    try {
+        if (!database) {
+            return res.status(500).send("Database connection not established");
+        }
+
+        const collections = ["cusins", "SideDishes", "IndianFastFood", "Drinks"];
+        let updated = false;
+
+        for (const collection of collections) {
+            const result = await database.collection(collection).updateOne(
+                { _id: new ObjectId(id) }, 
+                { $set: updatedItem }
+            );
+            if (result.modifiedCount > 0) {
+                updated = true;
+                break;
+            }
+        }
+
+        if (updated) {
+            res.status(200).send({ message: "Item updated successfully" });
+        } else {
+            res.status(404).send({ message: "Item not found" });
+        }
+    } catch (error) {
+        console.error("Error updating item:", error);
+        res.status(500).send({ message: "Failed to update item" });
     }
 });

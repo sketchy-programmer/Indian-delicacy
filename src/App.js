@@ -44,7 +44,7 @@ function App() {
             <Route path="/Drinks" element={<><NavigationBar /><Categories /><Drinks /></>}></Route>
             <Route path="/SignUp" element={<><NavigationBar /><SignUp /></>} />
             <Route path="/login" element={<><NavigationBar /><LoginPage /></>}/>
-            <Route path="/Add_item" element={<><NavigationBar /><AddItem /></>} />
+            <Route path="/add-item" element={<><NavigationBar /><AddItem /></>} />
           </Routes>
           <Footer />
         </div>

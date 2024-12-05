@@ -32,10 +32,13 @@ const LoginPage = () => {
       // Check response for success
       if (response.data.success) {
         // Store token in localStorage (or cookies, if preferred)
+        localStorage.setItem('userEmail', response.data.email);
+        localStorage.setItem('userFirstName', response.data.firstName); // Ensure these fields are sent from the backend
+        localStorage.setItem('userLastName', response.data.lastName);
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('role', response.data.role);
         
-
+        window.dispatchEvent(new Event('userLoggedIn'));  // Important to refresh the navigation state
         // Redirect based on role
         if (response.data.role === 'Admin') {
           navigate('/Admin'); // Replace with actual admin dashboard route

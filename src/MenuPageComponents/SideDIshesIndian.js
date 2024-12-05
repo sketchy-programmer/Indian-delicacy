@@ -12,7 +12,7 @@ export const SideDishes = () => {
     useEffect(() => {
         const fetchSideDishes = async () => {
             try {
-                const response = await axios.get('http://localhost:5038/api/indian_cousins/GetSideDishes');
+                const response = await axios.get('http://localhost:5000/api/indian_cousins/GetSideDishes');
                 setSideDishes(response.data);
                 setLoading(false);
             } catch (error) {

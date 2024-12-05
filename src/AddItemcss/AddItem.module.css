@@ -64,3 +64,42 @@ form button:hover{
 .preview_container{
     display: none;
 }
+
+.itemTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .itemTable th,
+  .itemTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .itemTable th {
+    background-color: #f2f2f2;
+    color: #333;
+  }
+  
+  .itemTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .itemTable tr:hover {
+    background-color: #e6f7ff;
+  }
+
+  .editButton {
+    background-color: #ffc107;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 5px;
+    border-radius: 4px;
+}
+.editButton:hover {
+    background-color: #e0a800;
+}
