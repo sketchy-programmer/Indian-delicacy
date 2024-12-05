@@ -37,6 +37,7 @@ input {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-left: 150px;
 }
 
 .registerButton {
@@ -55,4 +56,19 @@ input {
 
 .loginButton:hover {
     background-color: #5a6268;
+}
+
+h2{
+    width: 9rem;
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    margin-left: 590px;
+    position: relative;
+    left: -29rem;
 }

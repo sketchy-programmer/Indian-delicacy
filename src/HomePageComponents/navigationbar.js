@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
 import styles from '../HomePageCSS/navigationbar.module.css';
 import logo from '../assets/navigationbarAssetes/logo.png';
-
+import { animateScroll as scroll, scroller } from 'react-scroll';
 function NavigationBar() {
     const [showTooltip, setShowTooltip] = useState(false);
     const [user, setUser] = useState(null); // Initialize with null
@@ -12,6 +12,23 @@ function NavigationBar() {
     const [role, setRole] = useState(null);  // Track role
 
     let hideTooltipTimeout;
+
+    // Scroll to section
+    const scrollToSection = () => {
+        scroller.scrollTo("OurStory", {
+            duration: 800,
+            delay: 0,
+            smooth: "easeInOutQuart",
+        });
+    };
+
+    const scrollToContact = () => {
+        scroller.scrollTo("footer", {
+            duration: 800,
+            delay: 0,
+            smooth: "easeInOutQuart",
+        });
+    };
 
     useEffect(() => {
         const updateUserState = () => {
@@ -101,8 +118,8 @@ function NavigationBar() {
                 <ul className={styles.menubar}>
                     <li><Link className={styles.link} to="/Admin">HOME</Link></li>
                     <li><Link className={styles.link} to="/menu">MENU</Link></li>
-                    <li><Link className={styles.link} to="/about">ABOUT US</Link></li>
-                    <li><Link className={styles.link} to="/contact">CONTACT</Link></li>
+                    <li><a className={styles.link} onClick={scrollToSection}>ABOUT US</a></li>
+                    <li><Link className={styles.link} onClick={scrollToContact}>CONTACT</Link></li>
                         <li><Link className={styles.link} to="/add-item">Add Item</Link></li>
                 </ul>
                 <label><Link className={styles.signup} to="/SignUp">Sign up</Link></label>

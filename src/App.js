@@ -31,6 +31,7 @@ function App() {
       <CartProvider> {/* Wrap everything with CartProvider */}
         <div>
           <Routes>
+          <Route path="/" element={<><NavigationBar /><LoginPage /></>} />
             <Route path='/cart' element={<><NavigationBar /><Cart /></>} />
             <Route path="/User" element={<><NavigationBarUser /><HomePageTheme /><BookTable /><FoodCategory /><CustomerProtection />
               <RestaurentStory /><IngredientsSection /><WordsFromChef /><CustomerReview /><NewsLetterSubscription /></>} />

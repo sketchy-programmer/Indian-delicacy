@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import styles from '../SignInCSS/LoginPage.module.css';
+
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -88,7 +90,8 @@ const LoginPage = () => {
         {errorMessage && <div className="error" style={{ color: 'red' }}>{errorMessage}</div>}
 
         {/* Submit Button */}
-        <button type="submit">Login</button>
+        <button className={styles.loginButton} type="submit">Login</button>
+        <button className={styles.loginButton} to="/SignUp">SignUp</button>
       </form>
     </div>
   );

@@ -24,7 +24,6 @@ function Footer() {
                 <h3>Help</h3>
             </div>
             <div className={styles.social_media_handles}>
-                <form>
                     <div className={styles.subscription}>
                         <h1>Sign Up To Receive Our Newsletter</h1>
                     </div>
@@ -32,7 +31,6 @@ function Footer() {
                         <input className={styles.email_field} type='email'></input>
                         <button>Follow us!</button>
                     </div>
-                </form>
                 <div className={styles.social_media_buttons}>
                     <a href='https://www.facebook.com/'><FontAwesomeIcon className={styles.facebook} icon={faFacebookF}></FontAwesomeIcon></a>
                     <a href='https://x.com/?lang=en'><FontAwesomeIcon className={styles.twitter} icon={faTwitter}></FontAwesomeIcon></a>
