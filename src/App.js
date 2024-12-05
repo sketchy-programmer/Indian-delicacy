@@ -24,25 +24,27 @@ import SignUp  from './SignIn/SignUp.js';
 import { CartProvider } from './Cart/CartContext.js'; // Import the CartProvider
 import SelectTable from './HomePageComponents/SelectTable.js';
 import LoginPage from './SignIn/LoginPage.js';
+import NavigationBarUser from './HomePageComponents/navigationbaruser.js';
 function App() {
   return (
     <>
       <CartProvider> {/* Wrap everything with CartProvider */}
         <div>
-          <NavigationBar />
           <Routes>
-            <Route path='/cart' element={<><Cart /></>} />
-            <Route path="/" element={<><HomePageTheme /><BookTable /><FoodCategory /><CustomerProtection />
+            <Route path='/cart' element={<><NavigationBar /><Cart /></>} />
+            <Route path="/User" element={<><NavigationBarUser /><HomePageTheme /><BookTable /><FoodCategory /><CustomerProtection />
               <RestaurentStory /><IngredientsSection /><WordsFromChef /><CustomerReview /><NewsLetterSubscription /></>} />
-            <Route path="/select-table" element={<><SelectTable /></>} />
-            <Route path="/menu" element={<><MenuPageTheme /><Categories /><AllItems/><RestaurentStory/></>} />
-            <Route path="/cuisins" element={<><Categories /><MeatDishes /></>} />
-            <Route path="/SideDishes" element={<><Categories /><SideDishes /></>}></Route>
-            <Route path="/Indian_FastFood" element={<><Categories /><IndianFastFood /></>}></Route>
-            <Route path="/Drinks" element={<><Categories /><Drinks /></>}></Route>
-            <Route path="/SignUp" element={<SignUp />} />
-            <Route path="/login" element={<LoginPage />}/>
-            <Route path="/Add_item" element={<><AddItem /></>} />
+            <Route path="/Admin" element={<><NavigationBar /><HomePageTheme /><BookTable /><FoodCategory /><CustomerProtection />
+              <RestaurentStory /><IngredientsSection /><WordsFromChef /><CustomerReview /><NewsLetterSubscription /></>} />
+            <Route path="/select-table" element={<><NavigationBar /><SelectTable /></>} />
+            <Route path="/menu" element={<><NavigationBar /><MenuPageTheme /><Categories /><AllItems/></>} />
+            <Route path="/cuisins" element={<><NavigationBar /><Categories /><MeatDishes /></>} />
+            <Route path="/SideDishes" element={<><NavigationBar /><Categories /><SideDishes /></>}></Route>
+            <Route path="/Indian_FastFood" element={<><NavigationBar /><Categories /><IndianFastFood /></>}></Route>
+            <Route path="/Drinks" element={<><NavigationBar /><Categories /><Drinks /></>}></Route>
+            <Route path="/SignUp" element={<><NavigationBar /><SignUp /></>} />
+            <Route path="/login" element={<><NavigationBar /><LoginPage /></>}/>
+            <Route path="/Add_item" element={<><NavigationBar /><AddItem /></>} />
           </Routes>
           <Footer />
         </div>

@@ -12,7 +12,7 @@ const AllItems = () => {
     useEffect(() => {
         const fetchMenuItems = async () => {
             try {
-                const response = await axios.get('http://localhost:5038/api/indian_cousins/GetAllItems');
+                const response = await axios.get('http://localhost:5000/api/indian_cousins/GetAllItems');
                 setMenuItems(response.data);
                 setLoading(false);
             } catch (error) {

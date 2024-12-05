@@ -12,7 +12,7 @@ const Drinks = () => {
     useEffect(() => {
         const fetchDrinks = async () => {
             try {
-                const response = await axios.get('http://localhost:5038/api/indian_cousins/GetDrinks');
+                const response = await axios.get('http://localhost:5000/api/indian_cousins/GetDrinks');
                 setDrinks(response.data);
                 setLoading(false);
             } catch (error) {

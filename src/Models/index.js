@@ -2,6 +2,8 @@ const express = require("express");
 const { MongoClient } = require("mongodb");
 const cors = require("cors");
 const multer = require('multer'); // Use multer for parsing form data
+const bcrypt = require('bcrypt'); // For password hashing
+const jwt = require('jsonwebtoken'); // For generating tokens
 
 const app = express();
 app.use(cors());
@@ -27,10 +29,19 @@ async function connectToDatabase() {
 }
 
 // Start the server and connect to MongoDB
-app.listen(5038, () => {
+app.listen(5000, () => {
     console.log("Server is running on port 5038");
     connectToDatabase(); // Call the function to connect to the database
 });
+
+// Middleware to check for admin role
+const isAdmin = (req, res, next) => {
+    const { role } = req.headers;  // Assume the role is sent in the header
+    if (role !== 'Admin') {
+        return res.status(403).send({ message: "Access denied. Admins only." });
+    }
+    next();
+};
 
 //Fetch all items
 app.get('/api/indian_cousins/GetAllItems', async (req, res) => {
@@ -70,7 +81,7 @@ app.get('/api/indian_cousins/GetCuisins', async (req, res) => {
 });
 
 // Add new item (with image source) to the 'cusins' collection
-app.post('/api/indian_cousins/AddNotes', async (req, res) => {
+app.post('/api/indian_cousins/AddNotes', isAdmin, async (req, res) => {
     const { name, price, img_src } = req.body; // Get name, price, and img_src from the request body
 
     try {
@@ -88,7 +99,7 @@ app.post('/api/indian_cousins/AddNotes', async (req, res) => {
 });
 
 // Fetch data from the 'SideDishes' collection
-app.get('/api/indian_cousins/GetSideDishes', async (req, res) => {
+app.get('/api/indian_cousins/GetSideDishes', isAdmin, async (req, res) => {
     try {
         if (!database) {
             return res.status(500).send("Database connection not established");
@@ -103,7 +114,7 @@ app.get('/api/indian_cousins/GetSideDishes', async (req, res) => {
 });
 
 // Add new item (with image source) to the 'SideDishes' collection
-app.post('/api/indian_cousins/AddSideDishes', async (req, res) => {
+app.post('/api/indian_cousins/AddSideDishes', isAdmin, async (req, res) => {
     const { name, price, img_src } = req.body; // Get name, price, and img_src from the request body
 
     try {
@@ -121,7 +132,7 @@ app.post('/api/indian_cousins/AddSideDishes', async (req, res) => {
 });
 
 // Fetch data from the 'IndianFastFood' collection
-app.get('/api/indian_cousins/GetIndianFastFood', async (req, res) => {
+app.get('/api/indian_cousins/GetIndianFastFood', isAdmin, async (req, res) => {
     try {
         if (!database) {
             return res.status(500).send("Database connection not established");
@@ -136,7 +147,7 @@ app.get('/api/indian_cousins/GetIndianFastFood', async (req, res) => {
 })
 
 // Add new item (with image source) to the 'IndianFastFood' collection
-app.post('/api/indian_cousins/AddIndianFastFood', async (req, res) => {
+app.post('/api/indian_cousins/AddIndianFastFood', isAdmin, async (req, res) => {
     const { name, price, img_src } = req.body;
 
     try {
@@ -155,7 +166,7 @@ app.post('/api/indian_cousins/AddIndianFastFood', async (req, res) => {
 
 
 // Fetch data from the 'Drinks' collection
-app.get('/api/indian_cousins/GetDrinks', async (req, res) => {
+app.get('/api/indian_cousins/GetDrinks', isAdmin, async (req, res) => {
     try {
         if (!database) {
             return res.status(500).send("Database connection not established");
@@ -170,7 +181,7 @@ app.get('/api/indian_cousins/GetDrinks', async (req, res) => {
 })
 
 // Add new item (with image source) to the 'Drinks' collection
-app.post('/api/indian_cousins/AddDrinks', async (req, res) => {
+app.post('/api/indian_cousins/AddDrinks', isAdmin, async (req, res) => {
     const { name, price, img_src } = req.body;
 
     try {
@@ -187,61 +198,50 @@ app.post('/api/indian_cousins/AddDrinks', async (req, res) => {
     }
 })
 
-
-// Endpoint to add a new user
+/*// Register a new user or admin
 app.post('/api/indian_cousins/AddUser', async (req, res) => {
-    const { userFirstName, userLastName, userEmail, userPassword, userConfirmPass } = req.body;
+    const { userFirstName, userLastName, userEmail, userPassword, role } = req.body; // Added 'role'
 
     try {
-        if (!userFirstName || !userLastName || !userEmail || !userPassword || !userConfirmPass) {
-            return res.status(400).send("All fields are required.");
+        if (!userFirstName || !userLastName || !userEmail || !userPassword || !role) {
+            return res.status(400).send("All fields are required, including role.");
         }
 
-        // Insert the new user data
-        const newUser = { firstName: userFirstName, lastName: userLastName, email: userEmail, password: userPassword };
+        const newUser = { 
+            firstName: userFirstName, 
+            lastName: userLastName, 
+            email: userEmail, 
+            password: userPassword,
+            role // 'Admin' or 'Customer'
+        };
+
         const result = await database.collection('UserCredentials').insertOne(newUser);
-        
-        res.status(201).send({ success: true, message: "User registered successfully", result });
+        res.status(201).send({ success: true, message: `${role} registered successfully`, result });
     } catch (error) {
-        console.error("Error adding item:", error);
-        res.status(500).send("Error adding item");
+        console.error("Error adding user:", error);
+        res.status(500).send("Error adding user");
     }
 });
 
-
-// Endpoint to log in a user
 app.post('/api/indian_cousins/LoginUser', async (req, res) => {
-    console.log(req.body);
     const { userEmail, userPassword } = req.body;
 
     try {
-        if (!userEmail || !userPassword) {
-            return res.status(400).send({ message: "Email and password are required." });
-        }
-
-        // Find the user in the database
         const user = await database.collection('UserCredentials').findOne({ email: userEmail });
-
-        if (!user) {
-            return res.status(404).send({ message: "User not found. Please register first." });
-        }
-
-        // Check if the password matches
+        if (!user) return res.status(404).send({ message: "User not found. Please register first." });
+        
+        // Password check
         if (user.password !== userPassword) {
             return res.status(401).send({ message: "Invalid email or password." });
         }
 
-        // Generate a token (replace with actual token generation logic if needed)
+        // Generate token (dummy for now)
         const token = `dummy-token-${user._id}`;
-
-        // Include a role field based on business logic (e.g., Admin or Customer)
-        const role = userEmail === "admin@example.com" ? "Admin" : "Customer";
-
-        // Respond with user details and token
+        
         res.status(200).send({
             success: true,
             message: "Login successful!",
-            role,
+            role: user.role,  // Send role from database
             token,
             user: {
                 id: user._id,
@@ -255,6 +255,9 @@ app.post('/api/indian_cousins/LoginUser', async (req, res) => {
         res.status(500).send({ message: "Error during login" });
     }
 });
+*/
+
+
 // select table
 app.get('/api/restaurant/getTables', async (req, res) => {
     try {
@@ -325,3 +328,43 @@ app.get('/api/indian_cousins/GetUserInfo', async (req, res) => {
     }
 });
 
+// User registration endpoint
+app.post('/api/indian_cousins/AddUser', async (req, res) => {
+    const { userFirstName, userLastName, userEmail, userPassword, role } = req.body;
+    
+    try {
+        const hashedPassword = await bcrypt.hash(userPassword, 10); // Hash password
+        const newUser = {
+            firstName: userFirstName,
+            lastName: userLastName,
+            email: userEmail,
+            password: hashedPassword,
+            role
+        };
+
+        await database.collection('UserCredentials').insertOne(newUser);
+        res.status(201).send({ success: true, message: `${role} registered successfully!` });
+    } catch (error) {
+        res.status(500).send({ message: "Registration failed!" });
+    }
+});
+
+// User login endpoint
+app.post('/api/indian_cousins/LoginUser', async (req, res) => {
+    const { userEmail, userPassword } = req.body;
+
+    try {
+        const user = await database.collection('UserCredentials').findOne({ email: userEmail });
+        if (!user) return res.status(404).send({ message: "User not found. Please register first." });
+
+        const isMatch = await bcrypt.compare(userPassword, user.password);
+        if (!isMatch) return res.status(401).send({ message: "Invalid email or password." });
+
+        // Generate a token (replace 'secret' with a strong key)
+        const token = jwt.sign({ id: user._id, role: user.role }, 'secret', { expiresIn: '1h' });
+
+        res.status(200).send({ success: true, message: "Login successful!", token, role: user.role });
+    } catch (error) {
+        res.status(500).send({ message: "Login failed!" });
+    }
+});

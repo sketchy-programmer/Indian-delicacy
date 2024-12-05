@@ -11,7 +11,7 @@ function NewsLetterSubscription() {
     
         try {
           // Send the form data to the backend API
-          await axios.post('http://localhost:5038/api/subscribe', { name, email, message });
+          await axios.post('http://localhost:5000/api/subscribe', { name, email, message });
           alert('Subscription successful! Please check your email.');
         } catch (error) {
           console.error('Error sending subscription:', error);

@@ -5,7 +5,7 @@ import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
 import styles from '../HomePageCSS/navigationbar.module.css';
 import logo from '../assets/navigationbarAssetes/logo.png';
 
-function NavigationBar() {
+function NavigationBarUser() {
     const [showTooltip, setShowTooltip] = useState(false);
     const [user, setUser] = useState(null); // Initialize with null
     const navigate = useNavigate();
@@ -103,7 +103,9 @@ function NavigationBar() {
                     <li><Link className={styles.link} to="/menu">MENU</Link></li>
                     <li><Link className={styles.link} to="/about">ABOUT US</Link></li>
                     <li><Link className={styles.link} to="/contact">CONTACT</Link></li>
+                    {role === 'Admin' && (   // Show only if role is Admin
                         <li><Link className={styles.link} to="/add-item">Add Item</Link></li>
+                    )}
                 </ul>
                 <label><Link className={styles.signup} to="/SignUp">Sign up</Link></label>
             </div>
@@ -111,4 +113,4 @@ function NavigationBar() {
     );
 }
 
-export default NavigationBar;
+export default NavigationBarUser;

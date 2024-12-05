@@ -11,7 +11,7 @@ const IndianFastFood = () => {
     useEffect(() => {
         const fetchIndianFastFood = async () => {
             try {
-                const response = await axios.get('http://localhost:5038/api/indian_cousins/GetIndianFastFood');
+                const response = await axios.get('http://localhost:5000/api/indian_cousins/GetIndianFastFood');
                 setIndianFastFood(response.data);
                 setLoading(false);
             } catch (error) {

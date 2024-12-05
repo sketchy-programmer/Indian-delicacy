@@ -12,7 +12,7 @@ const MeatDishes = () => {
     useEffect(() => {
         const fetchMenuItems = async () => {
             try {
-                const response = await axios.get('http://localhost:5038/api/indian_cousins/GetCuisins');
+                const response = await axios.get('http://localhost:5000/api/indian_cousins/GetCuisins');
                 setMenuItems(response.data);
                 setLoading(false);
             } catch (error) {
