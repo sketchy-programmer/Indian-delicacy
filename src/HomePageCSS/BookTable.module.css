@@ -3,6 +3,13 @@
     left: -35rem;
 }
 
+.datefield{
+    width: 20%;
+    position: relative;
+    left: 38rem;
+    top: -3rem;
+}
+
 .background{
     background-color: #fbf8ef;
     border-radius: 70px;
@@ -15,8 +22,8 @@
 
 .arrowdownkey{
     position: relative;
-    top: 18px;
-    left: 102px;
+    top: 4rem;
+    left: -5rem;
     font-size: large;
 }
 
@@ -37,8 +44,8 @@
 
 .datetxt{
     position: relative;
-    left: 7%;
-    top: 16px;
+    left: -33%;
+    top: 64px;
     font-family: serif;
     font-size: large;
     color: #001a2c;
@@ -46,15 +53,16 @@
 }
 
 .timefield{
+    width: 19%; 
     position: relative;
-    top: -90px;
-    left: 22%;
+    top: -178px;
+    left: 67%;
 }
 
 .timefield .arrowdownkey{
     position: relative;
-    top: 18px;
-    left: 102px;
+    top: 4rem;
+    left: -5rem;
     font-size: large;
 }
 
@@ -75,8 +83,8 @@
 
 .timetxt{
     position: relative;
-    left: 7%;
-    top: 16px;
+    left: -36%;
+    top: 4rem;
     font-family: serif;
     font-size: large;
     color: #001a2c;
@@ -85,14 +93,15 @@
 
 .emailfield{
     position: relative;
-    top: -175px;
-    left: 49%;
+    top: -19rem;
+    left: 88%;
+    width: 35%;
 }
 
 .emailtxt{
     position: relative;
-    left: 7%;
-    top: 16px;
+    left: -28%;
+    top: 4rem;
     font-family: serif;
     font-size: large;
     color: #001a2c;
@@ -101,8 +110,8 @@
 
 .emailfield .arrowdownkey{
     position: relative;
-    top: 18px;
-    left: 102px;
+    top: 4rem;
+    left: -5rem;
     font-size: large;
 }
 
@@ -142,4 +151,10 @@
 .bt:hover{
     color: #1aba9c;
     background-color: #efe4cd;
+}
+
+.btn{
+    position: relative;
+    top: -138px;
+    left: 2rem;
 }

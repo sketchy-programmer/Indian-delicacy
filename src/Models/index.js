@@ -300,5 +300,28 @@ app.post('/api/subscribe', async (req, res) => {
   }
 });
 
-  
+// New endpoint to get user info
+app.get('/api/indian_cousins/GetUserInfo', async (req, res) => {
+    const userEmail = req.query.email; // Get email from query parameter
+
+    try {
+        if (!userEmail) {
+            return res.status(400).send({ message: "Email is required." });
+        }
+
+        const user = await database.collection('UserCredentials').findOne({ email: userEmail });
+        if (!user) {
+            return res.status(404).send({ message: "User not found." });
+        }
+
+        res.status(200).send({
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+        });
+    } catch (error) {
+        console.error("Error fetching user info:", error);
+        res.status(500).send({ message: "Error fetching user info" });
+    }
+});
 

@@ -20,9 +20,10 @@ import IndianFastFood from './MenuPageComponents/indian_FastFood.js';
 import Drinks from './MenuPageComponents/Drinks.js';
 import Cart from './Cart/Cart.js';
 import { Routes, Route } from 'react-router-dom';
-import { SignUp } from './SignIn/SignUp.js';
+import SignUp  from './SignIn/SignUp.js';
 import { CartProvider } from './Cart/CartContext.js'; // Import the CartProvider
 import SelectTable from './HomePageComponents/SelectTable.js';
+import LoginPage from './SignIn/LoginPage.js';
 function App() {
   return (
     <>

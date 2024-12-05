@@ -97,3 +97,68 @@
     top: -33px;
     left: -230px;
 }
+
+.user{
+    color: white;
+    font-size: 25px;
+    padding: 4px;
+    position: relative;
+    top: 10px;
+    left: -1rem;
+}
+
+.user:hover{
+    color: #efe4cd;
+    cursor: pointer;
+}
+
+.userContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip {
+    position: absolute;
+    top: 50px; /* Adjust as needed */
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 200px;
+    text-align: center;
+}
+
+.tooltip p {
+    margin: 5px 0;
+}
+
+.logoutButton {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.loginLink {
+    text-decoration: none;
+    color: inherit;
+    padding: 8px 16px;
+    display: block;
+}
+
+.tooltip {
+    position: absolute;
+    background: white;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+    min-width: 150px;
+    right: 0;
+    margin-top: 5px;
+}
+

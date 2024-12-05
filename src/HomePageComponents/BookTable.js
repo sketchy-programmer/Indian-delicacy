@@ -41,7 +41,7 @@ function BookTable() {
                     <input type='emial' className={styles.email} placeholder='example123@gmail.com' value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 
-                <div>
+                <div className={styles.btn}>
                     <button className={styles.bt}>Check Availability</button>
                 </div>
               </div>

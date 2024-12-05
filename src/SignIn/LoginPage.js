@@ -9,18 +9,26 @@ const LoginPage = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5038/api/indian_cousins/LoginUser', { 
-        userEmail: email,  // change 'email' to 'userEmail'
-        userPassword: password  // change 'password' to 'userPassword'
+        userEmail: email,
+        userPassword: password,
       });
-      const { role, token } = response.data;
-  
-      // Save token to localStorage
+      const { role, token, user } = response.data;
+      
+      // Store user details in localStorage
       localStorage.setItem('authToken', token);
+      localStorage.setItem('userEmail', user.email);
+      localStorage.setItem('userFirstName', user.firstName);
+      localStorage.setItem('userLastName', user.lastName);
       localStorage.setItem('role', role);
+  
+      // Dispatch a custom event to notify navigation bar
+      window.dispatchEvent(new Event('userLoggedIn'));
   
       // Redirect based on role
       if (role === 'Admin') navigate('/add-item');
